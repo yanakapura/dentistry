@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+body {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  background-color: #a5bfc4;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 70px;
+  height: fit-content;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+/******** HEADER *********/
+
+/******** MAIN *********/
+/*** Hero section ***/
