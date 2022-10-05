@@ -11,19 +11,25 @@ html {
 }
 
 body {
-  text-transform: uppercase;
   letter-spacing: 3px;
-
   background-color: #a5bfc4;
 }
 
-h1 {
+h1,
+h2 {
   font-family: "Playfair Display", serif;
-  font-weight: 400;
   text-transform: none;
   letter-spacing: normal;
+}
+
+h1 {
   font-size: 70px;
-  height: fit-content;
+  font-weight: 400;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 400;
 }
 
 ul {
@@ -42,6 +48,7 @@ button {
   text-transform: uppercase;
   letter-spacing: inherit;
   color: inherit;
+  cursor: pointer;
 }
 
 /******** HEADER *********/
