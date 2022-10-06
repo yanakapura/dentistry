@@ -29,14 +29,14 @@
       <div class="header__logo">
         <img
           class="header__logo--img"
-          src="image/noun-lotus-circle-4981009.svg"
+          src="image/lotus.svg"
           alt=""
         />
         <a href="">FRAIS</a>
       </div>
       <nav class="header__navigation nav">
         <ul class="nav__links">
-          <li class="nav__link"><a href="">О нас</a></li>
+          <li class="nav__link"><a href="html/about.html">О нас</a></li>
           <li class="nav__link"><a href="">Услуги</a></li>
           <li class="nav__link"><a href="">Контакты</a></li>
         </ul>
@@ -95,7 +95,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/noun-dentist-1776820.svg"
+                  src="image/icon-1.svg"
                   alt=""
                 />
                 Консультация стоматолога</a
@@ -105,7 +105,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/noun-dentist-4432531.svg"
+                  src="image/icon-3.svg"
                   alt=""
                 />Эстетическая стоматология</a
               >
@@ -114,7 +114,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/noun-dentist-2317200.svg"
+                  src="image/icon-2.svg"
                   alt=""
                 />Терапивтическая стоматология</a
               >
@@ -123,7 +123,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/noun-first-tooth-4930852.svg"
+                  src="image/icon-4.svg"
                   alt=""
                 />Детский прием стоматолога</a
               >
@@ -135,7 +135,7 @@
 
     <div class="overflow">
         <div class="modal" id="modal--sign-up">
-            <h2 class="modal__title">Регистрация</h2>
+            <h3 class="modal__title">Регистрация</h3>
             <form class="modal__form">
                 <label for="name">Имя</label>
                 <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
@@ -152,14 +152,14 @@
             <span class="modal__close">&#11198;</span>
         </div>
         <div class="modal" id="modal--login">
-            <h2 class="modal__title">Войти</h2>
+            <h3 class="modal__title">Войти</h3>
             <form class="modal__form">
-                <label for="name">Имя</label>
-                <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
-                <label for="surname">Фамилия</label>
-                <input type="text" id="surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-                <label for="password">Пароль</label>
-                <input type="password" id="password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
+                <label for="login-name">Имя</label>
+                <input type="text" id="login-name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
+                <label for="login-surname">Фамилия</label>
+                <input type="text" id="login-surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
+                <label for="login-password">Пароль</label>
+                <input type="password" id="login-password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
                 <button class="modal__button" type="submit">Войти</button>
             </form>
             <span class="modal__close">&#11198;</span>
@@ -167,5 +167,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
   </body>
 </html>

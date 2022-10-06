@@ -12,11 +12,13 @@ html {
 
 body {
   letter-spacing: 3px;
-  background-color: #a5bfc4;
+  --bc-color: #a5bfc4;
+  background-color: var(--bc-color);
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Playfair Display", serif;
   text-transform: none;
   letter-spacing: normal;
@@ -28,8 +30,18 @@ h1 {
 }
 
 h2 {
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 400;
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: 400;
+}
+
+h4 {
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 ul {
@@ -51,7 +63,36 @@ button {
   cursor: pointer;
 }
 
-/******** HEADER *********/
+p {
+    line-height: 18px;
+    font-size: 13px;
+}
 
-/******** MAIN *********/
-/*** Hero section ***/
+input, textarea, select {
+  padding: 5px 10px;
+}
+
+footer {
+  height: 100px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 1);
+}
