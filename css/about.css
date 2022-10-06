@@ -195,9 +195,9 @@ body {
   resize: none;
 }
 
-input,
-textarea,
-select {
+.new-comment-section input,
+.new-comment-section textarea,
+.new-comment-section select {
   margin: 10px 0 20px;
   padding: 10px 15px;
   font-size: 14px;

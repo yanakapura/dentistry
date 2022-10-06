@@ -27,18 +27,19 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img
-          class="header__logo--img"
-          src="image/lotus.svg"
-          alt=""
-        />
-        <a href="">FRAIS</a>
+        <a href=""
+          ><img
+            class="header__logo--img"
+            src="image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
       </div>
       <nav class="header__navigation nav">
         <ul class="nav__links">
           <li class="nav__link"><a href="html/about.html">О нас</a></li>
-          <li class="nav__link"><a href="">Услуги</a></li>
-          <li class="nav__link"><a href="">Контакты</a></li>
+          <li class="nav__link"><a href="html/services.html">Услуги</a></li>
+          <li class="nav__link"><a href="html/contacts.html">Контакты</a></li>
         </ul>
         <div class="nav__appointment">
           <button class="nav__button">Записаться на прием</button>
@@ -63,7 +64,10 @@
           <h1>Стоматология нового поколения</h1>
           <a class="hero-section__button" href=""
             >Узнать больше
-            <svg class="hero-section__button--svg" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="hero-section__button--svg"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g>
                 <ellipse
                   ry="25"
@@ -93,11 +97,7 @@
           <ul class="menu__links">
             <li class="menu__link">
               <a href=""
-                ><img
-                  class="menu__icon"
-                  src="image/icon-1.svg"
-                  alt=""
-                />
+                ><img class="menu__icon" src="image/icons/icon-1.svg" alt="" />
                 Консультация стоматолога</a
               >
             </li>
@@ -105,7 +105,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/icon-3.svg"
+                  src="image/icons/icon-3.svg"
                   alt=""
                 />Эстетическая стоматология</a
               >
@@ -114,7 +114,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/icon-2.svg"
+                  src="image/icons/icon-2.svg"
                   alt=""
                 />Терапивтическая стоматология</a
               >
@@ -123,7 +123,7 @@
               <a href=""
                 ><img
                   class="menu__icon"
-                  src="image/icon-4.svg"
+                  src="image/icons/icon-4.svg"
                   alt=""
                 />Детский прием стоматолога</a
               >
@@ -134,36 +134,68 @@
     </main>
 
     <div class="overflow">
-        <div class="modal" id="modal--sign-up">
-            <h3 class="modal__title">Регистрация</h3>
-            <form class="modal__form">
-                <label for="name">Имя</label>
-                <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
-                <label for="surname">Фамилия</label>
-                <input type="text" id="surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-                <label for="password">Пароль</label>
-                <input type="password" id="password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <label for="password-repeat">Повторите пароль</label>
-                <input type="password" id="password-repeat" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-                <button class="modal__button" type="submit">Зарегистрироваться</button>
-            </form>
-            <span class="modal__close">&#11198;</span>
-        </div>
-        <div class="modal" id="modal--login">
-            <h3 class="modal__title">Войти</h3>
-            <form class="modal__form">
-                <label for="login-name">Имя</label>
-                <input type="text" id="login-name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
-                <label for="login-surname">Фамилия</label>
-                <input type="text" id="login-surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-                <label for="login-password">Пароль</label>
-                <input type="password" id="login-password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <button class="modal__button" type="submit">Войти</button>
-            </form>
-            <span class="modal__close">&#11198;</span>
-        </div>
+      <div class="modal" id="modal--sign-up">
+        <h3 class="modal__title">Регистрация</h3>
+        <form class="modal__form">
+          <label for="name">Имя</label>
+          <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required />
+          <label for="surname">Фамилия</label>
+          <input
+            type="text"
+            id="surname"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="password">Пароль</label>
+          <input
+            type="password"
+            id="password"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+          <label for="password-repeat">Повторите пароль</label>
+          <input
+            type="password"
+            id="password-repeat"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+          <button class="modal__button" type="submit">
+            Зарегистрироваться
+          </button>
+        </form>
+        <img class="modal__close" src="/image/icons/close.svg" alt="" />
+      </div>
+      <div class="modal" id="modal--login">
+        <h3 class="modal__title">Войти</h3>
+        <form class="modal__form">
+          <label for="login-name">Имя</label>
+          <input
+            type="text"
+            id="login-name"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="login-surname">Фамилия</label>
+          <input
+            type="text"
+            id="login-surname"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="login-password">Пароль</label>
+          <input
+            type="password"
+            id="login-password"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+          <button class="modal__button" type="submit">Войти</button>
+        </form>
+        <img class="modal__close" src="/image/icons/close.svg" alt="" />
+      </div>
     </div>
 
     <script src="js/script.js"></script>

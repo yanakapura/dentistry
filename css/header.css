@@ -8,6 +8,7 @@
     height: 70px;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
+    letter-spacing: 3px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 2;
   
@@ -16,8 +17,6 @@
   }
   
   .header__logo {
-    display: flex;
-    align-items: center;
     transform: translateX(30px);
   }
   
@@ -26,6 +25,8 @@
   }
   
   .header__logo a {
+    display: flex;
+    align-items: center;
     font-family: "Montserrat", sans-serif;
     font-size: 22px;
     letter-spacing: 5px;
