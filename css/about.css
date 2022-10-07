@@ -86,6 +86,60 @@ body {
   margin-bottom: 20px;
 }
 
+/**************** Doctors section ****************/
+
+.doctors-section {
+  background-color: white;
+  color: black;
+  padding: 60px;
+  padding-top: 0;
+}
+
+.doctors-section__title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.doctors-section__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.doctors-section__item  {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 530px;
+}
+
+.doctor__image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.doctor__image img {
+  height: 100%;
+}
+
+.doctor__description {
+  padding: 30px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doctor__name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.doctor__speciality {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
 /**************** Comments section ****************/
 
 .comments-section {
