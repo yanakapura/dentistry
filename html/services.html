@@ -26,11 +26,13 @@
     <title>Document</title>
   </head>
   <body>
-    <header class="header">
-      <div class="header__logo">
-        <a href="../index.html"
-          ><img
-            class="header__logo--img"
+
+      
+      <header class="header">
+          <div class="header__logo">
+              <a href="../index.html"
+              ><img
+              class="header__logo--img"
             src="../image/icons/lotus.svg"
             alt=""
           />FRAIS</a
@@ -51,15 +53,15 @@
         <div class="nav__login"><button class="nav__button">Войти</button></div>
       </nav>
     </header>
-
-    <main>
-      <section class="services-section">
-        <div class="services-section__background"></div>
+    
+    <main >
+        <section class="services-section">
+          <div class="services-section__background"></div>
         <div class="services-section__title">
           <h1>Услуги</h1>
         </div>
         <table class="services-section__table services-table" cellspacing="0">
-          <tr class="services-table__title">
+          <tr class="services-table__title" id="consultation">
             <th><h4>Консультация стоматолога</h4></th>
             <th><h4>Цена (бел. руб.)</h4></th>
           </tr>
@@ -85,7 +87,7 @@
                 <td>30</td>
               </tr>
           </div>
-          <tr class="services-table__title">
+          <tr class="services-table__title" id="aesthetic-dentistry">
             <th><h4>Эстетическая стоматология</h4> </th>
             <th><h4>Цена (бел. руб.)</h4> </th>
           </tr>
@@ -109,6 +111,82 @@
               <tr>
                 <td>Винир, эстетическая реставрация переднего зуба с пломбировкой</td>
                 <td>от 180</td>
+              </tr>
+          </div>
+          <tr class="services-table__title" id="therapeutic-dentistry">
+            <th><h4>Терапевтическая стоматология</h4> </th>
+            <th><h4>Цена (бел. руб.)</h4> </th>
+          </tr>
+          <div class="services-table__rows">
+            <tr>
+              <td>Лечение кариеса - при разрушении до 1/3 коронки зуба</td>
+              <td>от 85</td>
+            </tr>
+            <tr>
+              <td>Лечение кариеса - при разрушении до 1/2 коронки зуба</td>
+              <td>от 100</td>
+            </tr>
+            <tr>
+              <td>Лечение кариеса - при разрушении более 1/2 коронки зуба</td>
+              <td>от 130</td>
+            </tr>
+            <tr>
+              <td>Пульпит - 1-канал (временная пломба). Постоянная пломба после лечения</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Пульпит - 2-канал (временная пломба). Постоянная пломба после лечения</td>
+              <td>180</td>
+            </tr>
+            <tr>
+              <td>Пульпит - 3-канал (временная пломба). Постоянная пломба после лечения</td>
+              <td>250</td>
+            </tr>
+            <tr>
+              <td>Периодонтит - 1-канал (временная пломба)</td>
+              <td>от 160</td>
+            </tr>
+            <tr>
+              <td>Периодонтит - 2-канал (временная пломба)</td>
+              <td>от 270</td>
+            </tr>
+            <tr>
+              <td>Периодонтит - 3-канал (временная пломба)</td>
+              <td>от 360</td>
+            </tr>
+            <tr>
+              <td>Восстановление анатомической формы зуба пломбировочным материалом, со стоимостью пломбы (без стоимости лечения каналов)</td>
+              <td>от 180</td>
+            </tr>
+            <tr>
+              <td>Восстановление зуба со штифтом, без стоимости пломбы</td>
+              <td>от 70</td>
+            </tr>
+        </div>
+          <tr class="services-table__title" id="children's-dentistry">
+            <th><h4>Детская стоматология</h4> </th>
+            <th><h4>Цена (бел. руб.)</h4> </th>
+          </tr>
+          <div class="services-table__rows">
+              <tr>
+                <td>Консультация хирурга для ребенка</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>Удаление молочного зуба</td>
+                <td>40-45</td>
+              </tr>
+              <tr>
+                <td>Детская профгигиена полости рта</td>
+                <td>70</td>
+              </tr>
+              <tr>
+                <td>Кариес молочного зуба</td>
+                <td>60-85</td>
+              </tr>
+              <tr>
+                <td>Ортодонтическая пластинка для детей</td>
+                <td>от 355</td>
               </tr>
           </div>
         </table>
@@ -180,7 +258,7 @@
       </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer blur">
       <div class="footer__logo">
         <a href="../index.html">
           <img
