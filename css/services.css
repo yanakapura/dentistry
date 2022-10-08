@@ -34,9 +34,7 @@ body {
 
 .services-section__title {
   height: 200px;
-  transform: translate(25%, 20%);
-  top: 20%;
-  left: 8%;
+  transform: translate(22%, 0);
   width: 600px;
 }
 
