@@ -27,11 +27,7 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img
-          class="header__logo--img"
-          src="image/lotus.svg"
-          alt=""
-        />
+        <img class="header__logo--img" src="image/lotus.svg" alt="" />
         <a href="">FRAIS</a>
       </div>
       <nav class="header__navigation nav">
@@ -63,7 +59,10 @@
           <h1>Стоматология нового поколения</h1>
           <a class="hero-section__button" href=""
             >Узнать больше
-            <svg class="hero-section__button--svg" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="hero-section__button--svg"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g>
                 <ellipse
                   ry="25"
@@ -93,11 +92,7 @@
           <ul class="menu__links">
             <li class="menu__link">
               <a href=""
-                ><img
-                  class="menu__icon"
-                  src="image/icon-1.svg"
-                  alt=""
-                />
+                ><img class="menu__icon" src="image/icon-1.svg" alt="" />
                 Консультация стоматолога</a
               >
             </li>
@@ -121,11 +116,8 @@
             </li>
             <li class="menu__link">
               <a href=""
-                ><img
-                  class="menu__icon"
-                  src="image/icon-4.svg"
-                  alt=""
-                />Детский прием стоматолога</a
+                ><img class="menu__icon" src="image/icon-4.svg" alt="" />Детский
+                прием стоматолога</a
               >
             </li>
           </ul>
@@ -134,36 +126,130 @@
     </main>
 
     <div class="overflow">
-        <div class="modal" id="modal--sign-up">
-            <h3 class="modal__title">Регистрация</h3>
-            <form class="modal__form">
-                <label for="name">Имя</label>
-                <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
-                <label for="surname">Фамилия</label>
-                <input type="text" id="surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-                <label for="password">Пароль</label>
-                <input type="password" id="password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <label for="password-repeat">Повторите пароль</label>
-                <input type="password" id="password-repeat" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-                <button class="modal__button" type="submit">Зарегистрироваться</button>
-            </form>
-            <span class="modal__close">&#11198;</span>
-        </div>
-        <div class="modal" id="modal--login">
-            <h3 class="modal__title">Войти</h3>
-            <form class="modal__form">
-                <label for="login-name">Имя</label>
-                <input type="text" id="login-name" pattern="^[A-Za-zА-Яа-яЁё]+$" required> 
-                <label for="login-surname">Фамилия</label>
-                <input type="text" id="login-surname" pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-                <label for="login-password">Пароль</label>
-                <input type="password" id="login-password" pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}" required>
-                <button class="modal__button" type="submit">Войти</button>
-            </form>
-            <span class="modal__close">&#11198;</span>
-        </div>
+      <div class="modal" id="modal--sign-up">
+        <h3 class="modal__title">Регистрация</h3>
+        <form class="modal__form">
+          <label for="name"
+            >Имя
+            <span
+              id="nameError"
+              class="errorName error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            class="name"
+            type="text"
+            id="name"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="surname"
+            >Фамилия
+            <span
+              id="surnameError"
+              class="errorSurname error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            type="text"
+            id="surname"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="password"
+            >Пароль<span
+              id="passwordError"
+              class="errorPassword error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            type="password"
+            id="password"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+          <label for="password-repeat">Повторите пароль<span
+            id="passwordRepeatError"
+            class="errorPasswordRepeat error"
+            aria-live="polite"
+          ></label>
+          <input
+            type="password"
+            id="password-repeat"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+          <label for="email">Email<span
+            id="emailError"
+            class="errorEmail error"
+            aria-live="polite"
+          ></label>
+          <input type="email" id="email" required />
+          <button
+            class="modal__button"
+            id="modal__button__sign-up"
+            type="submit"
+          >
+            Зарегистрироваться
+          </button>
+        </form>
+        <span class="modal__close">&#11198;</span>
+      </div>
+      <div class="modal" id="modal--login">
+        <h3 class="modal__title">Войти</h3>
+        <form class="modal__form">
+          <label for="login-name"
+            >Имя
+            <span
+              id="login-nameError"
+              class="errorNameLogIn error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            class="name"
+            type="text"
+            id="login-name"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="login-surname"
+            >Фамилия
+            <span
+              id="login-surnameError"
+              class="errorSurnameLogIn error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            type="text"
+            id="login-surname"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
+          <label for="login-password"
+            >Пароль<span
+              id="login-passwordError"
+              class="errorPasswordLogIn error"
+              aria-live="polite"
+            ></span
+          ></label>
+          <input
+            type="password"
+            id="login-password"
+            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            required
+          />
+
+          <button class="modal__button" id="modal__button__login" type="submit">
+            Войти
+          </button>
+        </form>
+        <span class="modal__close">&#11198;</span>
+      </div>
     </div>
 
     <script src="js/script.js"></script>
