@@ -16,6 +16,7 @@ loginBtn.addEventListener("click", () => {
   openLogin();
 });
 
+
 // кнопка отправки формы регистрации
 modalButtonSignUp.addEventListener("click", (e) => {
   validationSignUp();
@@ -26,6 +27,7 @@ modalButtonLogIn.addEventListener("click", (e) => {
   validationLogIn();
   e.preventDefault();
 });
+
 
 overflow.addEventListener("click", (e) => {
   if (
@@ -53,6 +55,7 @@ function closeLogin() {
   overflow.style.display = "none";
   modalLogin.style.display = "none";
 }
+
 
 // Валидация на пустые строки
 function validation(inputField, inputError, message, idError) {
@@ -192,3 +195,4 @@ function validationSignUp() {
   );
   return true;
 }
+

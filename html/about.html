@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/hero.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/about.css" />
     <title>Document</title>
@@ -28,17 +28,22 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img class="header__logo--img" src="../image/lotus.svg" alt="" />
-        <a href="../index.html">FRAIS</a>
+        <a href="../index.html">
+          <img
+            class="header__logo--img"
+            src="../image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
       </div>
       <nav class="header__navigation nav">
         <ul class="nav__links">
-          <li class="nav__link"><a href="">О нас</a></li>
-          <li class="nav__link"><a href="">Услуги</a></li>
-          <li class="nav__link"><a href="">Контакты</a></li>
+          <li class="nav__link"><a href="about.html">О нас</a></li>
+          <li class="nav__link"><a href="services.html">Услуги</a></li>
+          <li class="nav__link"><a href="contacts.html">Контакты</a></li>
         </ul>
         <div class="nav__appointment">
-          <button class="nav__button">Записаться на прием</button>
+          <a class="nav__button" href="../html/services.html#appointment">Записаться на прием</a>
         </div>
         <div class="nav__sign-up">
           <button class="nav__button">Зарегистрироваться</button>
@@ -86,7 +91,7 @@
         <h2 class="points-section__title">Почему выбирают нашу клинику</h2>
         <ul class="points-section__items">
           <li class="points-section__item">
-            <img src="../image/equipment.svg" alt="" />
+            <img src="../image/icons/equipment.svg" alt="" />
             <h4>Современное оборудование</h4>
             <p>
               Мы используем новейшие технологии в стоматологии.
@@ -94,7 +99,7 @@
             </p>
           </li>
           <li class="points-section__item">
-            <img src="../image/qualification.svg" alt="" />
+            <img src="../image/icons/qualification.svg" alt="" />
             <h4>Высокая квалификация</h4>
             <p>
               С вами работает опытный персонал. Все врачи владеют самыми
@@ -102,7 +107,7 @@
             </p>
           </li>
           <li class="points-section__item">
-            <img src="../image/euro.svg" alt="" />
+            <img src="../image/icons/euro.svg" alt="" />
             <h4>Разумные цены</h4>
             <p>
               Работаем по умеренным ценам. Регулярно делаем скидки и рекламные
@@ -110,12 +115,78 @@
             </p>
           </li>
           <li class="points-section__item">
-            <img src="../image/services.svg" alt="" />
+            <img src="../image/icons/services.svg" alt="" />
             <h4>Большой спектр услуг</h4>
             <p>
               Оказываем большой спектр услуг. Мы приложим все усилия, чтобы вы
               остались довольны нашей работой.
             </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="doctors-section">
+        <h2 class="doctors-section__title">Персонал нашей клиники</h2>
+        <ul class="doctors-section__list">
+          <li class="doctors-section__item doctor">
+            <div class="doctor__image">
+              <img
+                src="../image/personal/portrait-male-physician-looking-camera-isolated-white-background.jpg"
+                alt="doctor-image"
+              />
+            </div>
+            <div class="doctor__description">
+              <p class="doctor__name">Иванов Иван Иванович</p>
+              <p class="doctor__speciality">Доктор, стоматолог-ортопед</p>
+              <p class="doctor__experience">Cтаж работы: 20 лет</p>
+              <p class="doctor__category">Категория: первая</p>
+              <p class="doctor__time">Время приема: пн-пт 08:00-14:00</p>
+            </div>
+          </li>
+          <li class="doctors-section__item doctor">
+            <div class="doctor__image">
+              <img
+                src="../image/personal/portrait-doctor.jpg"
+                alt="doctor-image"
+              />
+            </div>
+            <div class="doctor__description">
+              <p class="doctor__name">Петрова Елена Петровна</p>
+              <p class="doctor__speciality">Доктор, стоматолог-ортопед</p>
+              <p class="doctor__experience">Cтаж работы: 20 лет</p>
+              <p class="doctor__category">Категория: первая</p>
+              <p class="doctor__time">Время приема: пн-пт 14:00-20:00</p>
+            </div>
+          </li>
+          <li class="doctors-section__item doctor">
+            <div class="doctor__image">
+              <img
+                src="../image/personal/portrait-positive-young-male-dentist-uniform-with-crossed-hands-dental-office.jpg"
+                alt="doctor-image"
+              />
+            </div>
+            <div class="doctor__description">
+              <p class="doctor__name">Иванов Иван Иванович</p>
+              <p class="doctor__speciality">Доктор, стоматолог-ортопед</p>
+              <p class="doctor__experience">Cтаж работы: 20 лет</p>
+              <p class="doctor__category">Категория: первая</p>
+              <p class="doctor__time">Время приема: четные дни 08:00-14:00</p>
+            </div>
+          </li>
+          <li class="doctors-section__item doctor">
+            <div class="doctor__image">
+              <img
+                src="../image/personal/portrait-smiling-dentist-dentist-s-office.jpg"
+                alt="doctor-image"
+              />
+            </div>
+            <div class="doctor__description">
+              <p class="doctor__name">Иванов Иван Иванович</p>
+              <p class="doctor__speciality">Доктор, стоматолог-ортопед</p>
+              <p class="doctor__experience">Cтаж работы: 20 лет</p>
+              <p class="doctor__category">Категория: первая</p>
+              <p class="doctor__time">Время приема: нечетные дни 08:00-14:00</p>
+            </div>
           </li>
         </ul>
       </section>
@@ -130,7 +201,7 @@
         <ul class="comments-section__comments">
           <li class="comments-section__comment comment">
             <div class="comment__image">
-              <img src="../image/person.svg" alt="" />
+              <img src="../image/icons/person.svg" alt="" />
             </div>
             <div class="comment__text">
               <span class="comment__name">Елена</span>
@@ -148,7 +219,7 @@
           </li>
           <li class="comments-section__comment comment">
             <div class="comment__image">
-              <img src="../image/person.svg" alt="" />
+              <img src="../image/icons/person.svg" alt="" />
             </div>
             <div class="comment__text">
               <span class="comment__name">Елена</span>
@@ -166,7 +237,7 @@
           </li>
           <li class="comments-section__comment comment">
             <div class="comment__image">
-              <img src="../image/person.svg" alt="" />
+              <img src="../image/icons/person.svg" alt="" />
             </div>
             <div class="comment__text">
               <span class="comment__name">Елена</span>
@@ -184,7 +255,7 @@
           </li>
           <li class="comments-section__comment comment">
             <div class="comment__image">
-              <img src="../image/person.svg" alt="" />
+              <img src="../image/icons/person.svg" alt="" />
             </div>
             <div class="comment__text">
               <span class="comment__name">Елена</span>
@@ -202,7 +273,7 @@
           </li>
           <li class="comments-section__comment comment">
             <div class="comment__image">
-              <img src="../image/person.svg" alt="" />
+              <img src="../image/icons/person.svg" alt="" />
             </div>
             <div class="comment__text">
               <span class="comment__name">Елена</span>
@@ -238,7 +309,7 @@
           <input type="text" id="comment-doctor" />
           <label for="comment">Отзыв</label>
           <textarea id="comment"></textarea>
-          <button class="new-comment-section__button">Отправить</button>
+          <button class="new-comment-section__button btn">Отправить</button>
         </form>
       </section>
     </main>
@@ -276,13 +347,18 @@
             Зарегистрироваться
           </button>
         </form>
-        <span class="modal__close">&#11198;</span>
+        <img class="modal__close" src="../image/icons/close.svg" alt="" />
       </div>
       <div class="modal" id="modal--login">
         <h3 class="modal__title">Войти</h3>
         <form class="modal__form">
           <label for="login-name">Имя</label>
-          <input type="text" id="login-name" pattern="^[A-Za-zА-Яа-яЁё]+$" required />
+          <input
+            type="text"
+            id="login-name"
+            pattern="^[A-Za-zА-Яа-яЁё]+$"
+            required
+          />
           <label for="login-surname">Фамилия</label>
           <input
             type="text"
@@ -299,12 +375,42 @@
           />
           <button class="modal__button" type="submit">Войти</button>
         </form>
-        <span class="modal__close">&#11198;</span>
+        <img class="modal__close" src="../image/icons/close.svg" alt="" />
       </div>
     </div>
 
     <footer class="footer">
-      <p>Footer</p>
+      <div class="footer__logo">
+        <a href="../index.html">
+          <img
+            class="footer__logo--img"
+            src="../image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
+      </div>
+      <ul class="footer__company">
+        <li class="title">Компания</li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <ul class="footer__contacts">
+        <li class="title">Контакты</li>
+        <li>+375-29-123-45-67 (МТС)</li>
+        <li>+375-33-123-45-67 (А1)</li>
+        <li>
+          <a href="https://instagram.com"
+            ><img src="../image/icons/instagram.svg" alt="instagram-logo"
+          /></a>
+          <a href="https://facebook.com"
+            ><img src="../image/icons/facebook.svg" alt="facebook-logo"
+          /></a>
+          <a href="https://web.telegram.org/"
+            ><img src="../image/icons/telegram.svg" alt="telegram-logo"
+          /></a>
+        </li>
+      </ul>
     </footer>
 
     <script src="../js/modal.js"></script>

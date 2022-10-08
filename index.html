@@ -27,17 +27,23 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img class="header__logo--img" src="image/lotus.svg" alt="" />
-        <a href="">FRAIS</a>
+
+        <a href=""
+          ><img
+            class="header__logo--img"
+            src="image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
       </div>
       <nav class="header__navigation nav">
         <ul class="nav__links">
           <li class="nav__link"><a href="html/about.html">О нас</a></li>
-          <li class="nav__link"><a href="">Услуги</a></li>
-          <li class="nav__link"><a href="">Контакты</a></li>
+          <li class="nav__link"><a href="html/services.html">Услуги</a></li>
+          <li class="nav__link"><a href="html/contacts.html">Контакты</a></li>
         </ul>
         <div class="nav__appointment">
-          <button class="nav__button">Записаться на прием</button>
+          <a class="nav__button" href="html/services.html#appointment">Записаться на прием</a> 
         </div>
         <div class="nav__sign-up">
           <button class="nav__button">Зарегистрироваться</button>
@@ -57,7 +63,7 @@
         </div>
         <div class="hero-section__title">
           <h1>Стоматология нового поколения</h1>
-          <a class="hero-section__button" href=""
+          <a class="hero-section__button" href="html/about.html"
             >Узнать больше
             <svg
               class="hero-section__button--svg"
@@ -91,33 +97,40 @@
         <div class="hero-section__menu menu">
           <ul class="menu__links">
             <li class="menu__link">
-              <a href=""
-                ><img class="menu__icon" src="image/icon-1.svg" alt="" />
+
+              <a href="html/services.html#consultation"
+                ><img class="menu__icon" src="image/icons/icon-1.svg" alt="" />
+
                 Консультация стоматолога</a
               >
             </li>
             <li class="menu__link">
-              <a href=""
+              <a href="html/services.html#aesthetic-dentistry"
                 ><img
                   class="menu__icon"
-                  src="image/icon-3.svg"
+                  src="image/icons/icon-3.svg"
                   alt=""
                 />Эстетическая стоматология</a
               >
             </li>
             <li class="menu__link">
-              <a href=""
+              <a href="html/services.html#therapeutic-dentistry"
                 ><img
                   class="menu__icon"
-                  src="image/icon-2.svg"
+                  src="image/icons/icon-2.svg"
                   alt=""
                 />Терапивтическая стоматология</a
               >
             </li>
             <li class="menu__link">
-              <a href=""
-                ><img class="menu__icon" src="image/icon-4.svg" alt="" />Детский
-                прием стоматолога</a
+
+              <a href="html/services.html#children's-dentistry"
+                ><img
+                  class="menu__icon"
+                  src="image/icons/icon-4.svg"
+                  alt=""
+                />Детский прием стоматолога</a
+
               >
             </li>
           </ul>
@@ -129,7 +142,8 @@
       <div class="modal" id="modal--sign-up">
         <h3 class="modal__title">Регистрация</h3>
         <form class="modal__form">
-          <label for="name"
+
+        <label for="name"
             >Имя
             <span
               id="nameError"
@@ -152,12 +166,14 @@
               aria-live="polite"
             ></span
           ></label>
+
           <input
             type="text"
             id="surname"
             pattern="^[A-Za-zА-Яа-яЁё]+$"
             required
           />
+
           <label for="password"
             >Пароль<span
               id="passwordError"
@@ -171,7 +187,8 @@
             pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
             required
           />
-          <label for="password-repeat">Повторите пароль<span
+
+         <label for="password-repeat">Повторите пароль<span
             id="passwordRepeatError"
             class="errorPasswordRepeat error"
             aria-live="polite"
@@ -182,7 +199,8 @@
             pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
             required
           />
-          <label for="email">Email<span
+
+                <label for="email">Email<span
             id="emailError"
             class="errorEmail error"
             aria-live="polite"
@@ -201,7 +219,8 @@
       <div class="modal" id="modal--login">
         <h3 class="modal__title">Войти</h3>
         <form class="modal__form">
-          <label for="login-name"
+
+              <label for="login-name"
             >Имя
             <span
               id="login-nameError"
@@ -216,7 +235,8 @@
             pattern="^[A-Za-zА-Яа-яЁё]+$"
             required
           />
-          <label for="login-surname"
+
+              <label for="login-surname"
             >Фамилия
             <span
               id="login-surnameError"
@@ -224,13 +244,15 @@
               aria-live="polite"
             ></span
           ></label>
+
           <input
             type="text"
             id="login-surname"
             pattern="^[A-Za-zА-Яа-яЁё]+$"
             required
           />
-          <label for="login-password"
+
+            <label for="login-password"
             >Пароль<span
               id="login-passwordError"
               class="errorPasswordLogIn error"
@@ -244,11 +266,12 @@
             required
           />
 
-          <button class="modal__button" id="modal__button__login" type="submit">
+      <button class="modal__button" id="modal__button__login" type="submit">
             Войти
           </button>
         </form>
-        <span class="modal__close">&#11198;</span>
+        <img class="modal__close" src="/image/icons/close.svg" alt="" />
+
       </div>
     </div>
 
