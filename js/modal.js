@@ -103,6 +103,7 @@ function validation(input, label) {
   }
 }
 
+// Валидация на длинну пароля
 function validationLength(input, label) {
   if (input.value.length < 6) {
     input.classList.add("input-error")
@@ -115,6 +116,7 @@ function validationLength(input, label) {
   }
 }
 
+// Валидация, чтобы в поле были только буквы
 function validationLetters(input, label) {
   if (!/^[A-Za-zА-Яа-яЁё]*$/.test(input.value)) {
     input.classList.add("input-error")
@@ -137,6 +139,7 @@ function validationEqualPasswords(password, repeatPassword, label) {
   }
 }
 
+// Валидация email
 function validationEmail(input, label) {
   if (!input.value.includes("@") || !input.value.includes(".")) {
     input.classList.add("input-error")
