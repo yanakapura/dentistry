@@ -143,8 +143,8 @@
         <h3 class="modal__title">Регистрация</h3>
         <form class="modal__form">
 
-        <label for="name"
-            >Имя
+        <label for="name">
+          Имя
             <span
               id="nameError"
               class="errorName error"
@@ -155,59 +155,59 @@
             class="name"
             type="text"
             id="name"
-            pattern="^[A-Za-zА-Яа-яЁё]+$"
             required
           />
-          <label for="surname"
-            >Фамилия
+          <label for="surname">
+            Фамилия
             <span
               id="surnameError"
               class="errorSurname error"
               aria-live="polite"
-            ></span
-          ></label>
-
+            >
+            </span>
+          </label>
           <input
             type="text"
             id="surname"
-            pattern="^[A-Za-zА-Яа-яЁё]+$"
             required
           />
 
-          <label for="password"
-            >Пароль<span
+          <label for="password">
+            Пароль
+            <span
               id="passwordError"
               class="errorPassword error"
               aria-live="polite"
-            ></span
-          ></label>
+            ></span>
+          </label>
           <input
             type="password"
             id="password"
-            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            class="input-password"
             required
           />
 
          <label for="password-repeat">Повторите пароль<span
             id="passwordRepeatError"
-            class="errorPasswordRepeat error"
+            class="errorPassword error"
             aria-live="polite"
           ></label>
           <input
             type="password"
             id="password-repeat"
-            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
+            class="input-password"
             required
           />
 
-                <label for="email">Email<span
+          <label for="email">Email<span
             id="emailError"
             class="errorEmail error"
             aria-live="polite"
           ></label>
           <input type="email" id="email" required />
+
           <button
-            class="modal__button"
+            class="modal__button btn"
             id="modal__button__sign-up"
             type="submit"
           >
@@ -266,7 +266,7 @@
             required
           />
 
-      <button class="modal__button" id="modal__button__login" type="submit">
+      <button class="modal__button btn" id="modal__button__login" type="submit">
             Войти
           </button>
         </form>

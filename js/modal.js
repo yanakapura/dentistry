@@ -16,19 +16,6 @@ loginBtn.addEventListener("click", () => {
   openLogin();
 });
 
-
-// кнопка отправки формы регистрации
-modalButtonSignUp.addEventListener("click", (e) => {
-  validationSignUp();
-  e.preventDefault();
-});
-// кнопка отправки формы регистрации
-modalButtonLogIn.addEventListener("click", (e) => {
-  validationLogIn();
-  e.preventDefault();
-});
-
-
 overflow.addEventListener("click", (e) => {
   if (
     e.target.classList.contains("overflow") ||
@@ -56,143 +43,108 @@ function closeLogin() {
   modalLogin.style.display = "none";
 }
 
+// кнопка отправки формы регистрации
+modalButtonSignUp.addEventListener("click", (e) => {
+  e.preventDefault();
+  validationSignUp();
+});
 
-// Валидация на пустые строки
-function validation(inputField, inputError, message, idError) {
-  if (!inputField.value) {
-    inputField.style.border = "2px solid red";
-    inputField.style.backgroundColor = "#ffd4d4";
-    inputError.textContent = message;
-    inputError.className = "error active";
-    return false;
-  } else {
-    inputField.style.border = "1px solid black";
-    inputField.style.backgroundColor = "rgba(255, 0, 0, 0)";
-    idError.classList.remove("error");
-    idError.classList = "hide";
-    return true;
-  }
-  // if (inputField.value) {
-  //   inputField.style.border = "1px solid black";
-  //   inputField.style.backgroundColor = "rgba(255, 0, 0, 0)";
-  //   idError.classList.remove("error");
-  //   idError.classList = "hide";
-  //   return true;
-  // }
-}
+// кнопка отправки формы регистрации
+modalButtonLogIn.addEventListener("click", (e) => {
+  e.preventDefault();
+  validationLogIn();
+});
 
-function validationLength(inputField, inputError, idError) {
-  if (inputField.value.length < 6) {
-    inputField.style.border = "2px solid red";
-    inputField.style.backgroundColor = "#ffd4d4";
-    inputError.textContent = "Количество символов меньше 6";
-    inputError.className = "error active";
-    return false;
-  } else {
-    inputField.style.border = "1px solid black";
-    inputField.style.backgroundColor = "rgba(255, 0, 0, 0)";
-    idError.classList.remove("error");
-    idError.className = "hide";
-  }
-}
-
-// function validationLetters(inputField, inputError, idError) {
-//   function letters(inputField) {
-//     let onlyLetters = /^[a-zA-Z]*$/;
-//     return onlyLetters.test(String(inputField.value));
-//   }
-
-//   if (!letters(inputField)) {
-//     console.log("numbers");
-//     inputField.style.border = "2px solid red";
-//     inputField.style.backgroundColor = "#ffd4d4";
-//     inputError.textContent = "not only letters";
-//     inputError.className = "error active";
-//     return false;
-//   } else {
-//     inputField.style.border = "1px solid black";
-//     inputField.style.backgroundColor = "rgba(255, 0, 0, 0)";
-//     idError.classList.remove("error");
-//     idError.className = "hide";
-//     console.log("its ok ");
-//   }
-// }
-
-// Равенсвто пароля и повторного пароля
-function validationEqualPasswords(password, repeatPassword, inputError) {
-  if (password.value !== repeatPassword.value) {
-    repeatPassword.style.border = "2px solid red";
-    repeatPassword.style.backgroundColor = "#ffd4d4";
-    inputError.textContent = "Ваши пароли не совпадают";
-    inputError.className = "error active";
-    return false;
-  } else if (password.value === repeatPassword.value) {
-    return true;
-  }
-}
 
 // Валидация входа
 function validationLogIn() {
-  const nameInput = document.getElementById("login-name");
-  const surnameInput = document.getElementById("login-surname");
-  const passwordInput = document.getElementById("login-password");
-  const nameError = document.querySelector(".errorNameLogIn");
-  const surnameError = document.querySelector(".errorSurnameLogIn");
-  const passwordError = document.querySelector(".errorPasswordLogIn");
-  const loginNameErr = document.getElementById("login-nameError");
-  const loginSurnameErr = document.getElementById("login-surnameError");
-  const loginPasswordErr = document.getElementById("login-passwordError");
-  validation(nameInput, nameError, "Введите ваше имя!", loginNameErr);
-  validation(
-    surnameInput,
-    surnameError,
-    "Введите вашу фамилию !",
-    loginSurnameErr
-  );
-  validation(
-    passwordInput,
-    passwordError,
-    "Введите ваш пароль !",
-    loginPasswordErr
-  );
-  // validationLetters(nameInput, nameError, loginNameErr);
+  const inputsLogin = modalLogin.getElementsByTagName("input");
+  const labelsError = modalLogin.getElementsByClassName("error");
+
+  for (let i = 0; i < inputsSingUp.length; i++) {
+    validation(inputsLogin[i], labelsError[i]);
+  }
+
 }
 
 // Валидация регистрации
 function validationSignUp() {
-  const nameError = document.querySelector(".errorName");
-  const surnameError = document.querySelector(".errorSurname");
-  const passwordError = document.querySelector(".errorPassword");
-  const passwordRepeatError = document.querySelector(".errorPasswordRepeat");
-  const emailError = document.querySelector(".errorEmail");
-  const nameInput = document.getElementById("name");
-  const surnameInput = document.getElementById("surname");
-  const passwordInput = document.getElementById("password");
-  const passwordRepeatInput = document.getElementById("password-repeat");
-  const emailInput = document.getElementById("email");
-  const nameErr = document.getElementById("nameError");
-  const surnameErr = document.getElementById("surnameError");
-  const passwordErr = document.getElementById("passwordError");
-  const passwordRepeatErr = document.getElementById("emailError");
-  const emailErr = document.getElementById("passwordRepeatError");
+  const inputsSingUp = modalSignUp.getElementsByTagName("input");
+  const labelsError = modalSignUp.getElementsByClassName("error");
+  const inputPassword = document.getElementById("password");
+  const inputPasswordRepeat = document.getElementById("password-repeat");
+  const labelErrorPasswordRepeat = document.querySelector("#passwordRepeatError");
 
-  validation(nameInput, nameError, "Введите ваше имя !", nameErr);
-  validation(surnameInput, surnameError, "Введите вашу фамилию !", surnameErr);
-  validation(passwordInput, passwordError, "Введите ваш пароль !", passwordErr);
-  validation(
-    passwordRepeatInput,
-    passwordRepeatError,
-    "Введите повторно ваш пароль !",
-    passwordRepeatErr
-  );
-  validation(emailInput, emailError, "Введите ваш email !", emailErr);
-  // validationLength(passwordInput, passwordError, passwordErr);
-  // validationLength(passwordRepeatInput, passwordRepeatError, passwordRepeatErr);
+  for (let i = 0; i < inputsSingUp.length; i++) {
+    validation(inputsSingUp[i], labelsError[i]);
+  }
+
   validationEqualPasswords(
-    passwordInput,
-    passwordRepeatInput,
-    passwordRepeatError
+    inputPassword,
+    inputPasswordRepeat,
+    labelErrorPasswordRepeat
   );
-  return true;
 }
 
+
+// Валидация на пустые строки
+function validation(input, label) {
+  if (!input.value) {
+    input.classList.add("input-error")
+    label.textContent = "Заполните поле";
+    label.classList.add("error");
+  } else {
+    input.classList.remove("input-error")
+    label.classList.add("hide");
+    input.id !== 'email' && validationLetters(input, label);
+
+    input.classList.contains("input-password") && validationLength(input, label)
+    input.id === 'email' && validationEmail(input, label)
+  }
+}
+
+function validationLength(input, label) {
+  if (input.value.length < 6) {
+    input.classList.add("input-error")
+    label.classList.remove("hide");
+    label.textContent = "Пароль должен содержать минимум 6 символов";
+    label.classList.add("error");
+  } else {
+    input.classList.remove("input-error")
+    label.classList.add("hide");
+  }
+}
+
+function validationLetters(input, label) {
+  if (!/^[A-Za-zА-Яа-яЁё]*$/.test(input.value)) {
+    input.classList.add("input-error")
+    label.classList.remove("hide");
+    label.textContent = "Можно использовать только латинские буквы и кирилицу";
+    label.classList.add("error");
+  } else {
+    input.classList.remove("input-error")
+    label.classList.add("hide");
+  }
+}
+
+// Равенсвто пароля и повторного пароля
+function validationEqualPasswords(password, repeatPassword, label) {
+  if (password.value !== repeatPassword.value) {
+    repeatPassword.classList.add("input-error");
+    label.classList.remove("hide");
+    label.textContent = "Ваши пароли не совпадают";
+    label.classList.add("error");
+  }
+}
+
+function validationEmail(input, label) {
+  if (!input.value.includes("@") || !input.value.includes(".")) {
+    input.classList.add("input-error")
+    label.classList.remove("hide");
+    label.textContent = `Email должен содержать "@" и "."`;
+    label.classList.add("error");
+  } else {
+    input.classList.remove("input-error")
+    label.classList.add("hide");
+  }
+}
