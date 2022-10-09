@@ -51,7 +51,7 @@
 .modal__form input {
   display: block;
   width: 100%;
-  margin: 6px 0 40px;
+  margin: 6px 0 20px;
 }
 
 .modal__button {
@@ -64,7 +64,7 @@
 }
 
 /* Стиль ошибок */
-.error {
+ .error, .errorTitle {
   display: block;
   width: 100%;
   padding: 0;
@@ -76,11 +76,16 @@
   font-size: 10px;
 }
 
-.input-error {
+.input-error, input.input-error:-webkit-autofill,
+input.input-error:-webkit-autofill:focus, 
+input.input-error:-webkit-autofill:active {
+  -webkit-text-fill-color: red;
+  -webkit-box-shadow: 0 0 0px 1000px #ffd4d4 inset;
+  box-shadow: 0 0 0px 1000px #ffd4d4 inset;
   border: 2px solid red;
-  background-color: #ffd4d4;
 }
 
 .hide {
   display: none !important;
 }
+
