@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/modal.css" />
-    <link rel="stylesheet" href="../css/contacts.css" />
+    <link rel="stylesheet" href="../css/account.css" />
     <title>Document</title>
   </head>
   <body>
@@ -31,7 +31,7 @@
         <a href="../index.html">
           <img
             class="header__logo--img"
-            src="../image/icons/lotus-black.svg"
+            src="../image/icons/lotus.svg"
             alt=""
           />FRAIS</a
         >
@@ -52,55 +52,50 @@
         </div>
         <div class="nav__login"><button class="nav__button">Войти</button></div>
         <div class="nav__account" id="account-nav">
-            <div class="nav__account--img">
-                <img src="../image/icons/person.svg" alt="">
-            </div>
-            <a class="nav__account--name">Иван Иванов</a>
+          <div class="nav__account--img">
+            <img src="../image/icons/person.svg" alt="" />
+          </div>
+          <a class="nav__account--name">Иван Иванов</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="contacts-section">
-        <div>
-          <div class="contacts-section__title">
-            <h1>Контакты</h1>
-          </div>
-          <iframe
-            class="contacts-section__map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.402767737642!2d27.53861993321413!3d53.906719202022664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcff4728bb105%3A0xd0b222cc01505d41!2z0YPQuy4g0JzQsNC60YHQuNC80LAg0KLQsNC90LrQsCA2LCDQnNC40L3RgdC6!5e0!3m2!1sru!2sby!4v1665221217584!5m2!1sru!2sby"
-            width="600"
-            height="380"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+      <section class="account-section">
+        <div class="account-section__image">
+          <img src="../image/icons/person.svg" alt="" />
         </div>
-        <div class="contacts-section__description">
-          <div class="contacts-section__contacts">
-            <h4>Наши контакты</h4>
-            <p>+375-29-123-45-67</p>
-            <p>+375-33-111-22-33</p>
-            <p>+375-44-444-55-66</p>
-            <p>+375-29-777-88-99</p>
-          </div>
-          <div class="constacts-section__time">
-            <h4>Режим работы стоматологии:</h4>
-            <p>Пн-Пт: 8.00 — 20.00</p>
-            <p>Сб: 8.00 — 15.00</p>
-            <p>Вс: выходной</p>
-          </div>
-          <div class="constacts-section__adress">
-            <h4>Режим работы стоматологии:</h4>
-            <p>ул. Максима Танка, 6</p>
-            <p>ст. метро Фрунзенская</p>
-          </div>
-          <div class="constacts-section__email">
-            <h4>Написать нам письмо на почту:</h4>
-            <p>info@stomland.by</p>
-            
-          </div>
+        <div class="account-section__name">
+          <h2 id="account-name">Иван Иванов</h2>
+        </div>
+        <div class="account-section__email">
+          <h3>Ваш Email</h3>
+          <span id="account-email">email@gmail.com</span>
+        </div>
+        <div class="account-section__appointment">
+          <h3>Последние записи</h3>
+          <table class="appointments" cellspacing="0">
+            <tr class="appointments__header">
+              <th>Дата</th>
+              <th>Время</th>
+              <th>Услуга</th>
+            </tr>
+            <tr class="appointments__item">
+              <td>21.09.2022</td>
+              <td>09.00</td>
+              <td>Консультация стоматолога</td>
+            </tr>
+            <tr class="appointments__item">
+              <td>21.09.2022</td>
+              <td>09.00</td>
+              <td>Консультация стоматолога</td>
+            </tr>
+            <tr class="appointments__item">
+              <td>21.09.2022</td>
+              <td>09.00</td>
+              <td>Консультация стоматолога</td>
+            </tr>
+          </table>
         </div>
       </section>
     </main>
@@ -170,12 +165,12 @@
       </div>
     </div>
 
-    <!-- <footer class="footer">
+    <footer class="footer">
       <div class="footer__logo">
         <a href="../index.html">
           <img
             class="footer__logo--img"
-            src="../image/icons/lotus-black.svg"
+            src="../image/icons/lotus.svg"
             alt=""
           />FRAIS</a
         >
@@ -192,17 +187,17 @@
         <li>+375-33-123-45-67 (А1)</li>
         <li>
           <a href="https://instagram.com"
-            ><img src="../image/icons/instagram-black.svg" alt="instagram-logo"
+            ><img src="../image/icons/instagram.svg" alt="instagram-logo"
           /></a>
           <a href="https://facebook.com"
-            ><img src="../image/icons/facebook-black.svg" alt="facebook-logo"
+            ><img src="../image/icons/facebook.svg" alt="facebook-logo"
           /></a>
           <a href="https://web.telegram.org/"
-            ><img src="../image/icons/telegram-black.svg" alt="telegram-logo"
+            ><img src="../image/icons/telegram.svg" alt="telegram-logo"
           /></a>
         </li>
       </ul>
-    </footer> -->
+    </footer>
 
     <script src="../js/modal.js"></script>
   </body>

@@ -16,3 +16,4 @@ function outAnimation() {
     heroBtn.classList.remove("out");
   }, 300);
 }
+

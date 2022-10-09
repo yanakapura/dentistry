@@ -7,6 +7,12 @@ body {
   word-spacing: 1.5px;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  width: 955px;
+}
+
 .services-section {
   position: relative;
   margin-top: 150px;
@@ -82,7 +88,7 @@ body {
 .section-appointment {
   background-color: white;
   color: black;
-  padding: 50px;
+  padding: 40px;
 }
 
 .section-appointment__title {
@@ -90,7 +96,7 @@ body {
 }
 
 .section-appointment__form {
-  margin: 0 100px 50px ;
+  margin: 0 100px 20px;
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -99,13 +105,12 @@ body {
 .section-appointment__form label {
   font-size: 14px;
   display: block;
-  margin: 30px 0 5px
+  margin: 30px 0 5px;
 }
-
 
 .section-appointment__form textarea {
   display: block;
-  height: 200px;
+  height: 150px;
   width: 700px;
   resize: none;
 }
@@ -118,14 +123,15 @@ body {
   font-family: "Jost", sans-serif;
 }
 
-.section-appointment__form input, .section-appointment__form select {
-    width: 400px;
+.section-appointment__form input,
+.section-appointment__form select {
+  width: 400px;
 }
 
 .section-appointment p {
-    margin: 5px 0 0px;
-    font-size: 20px;
-    font-weight: 500;
+  margin: 5px 0 0px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .section-appointment__reason {

@@ -5,8 +5,19 @@ const overflow = document.querySelector(".overflow");
 const modalSignUp = document.querySelector("#modal--sign-up");
 const modalLogin = document.querySelector("#modal--login");
 //Кнопка submit в модальных окнах
-const modalButtonSignUp = document.querySelector("#modal__button__sign-up");
-const modalButtonLogIn = document.querySelector("#modal__button__login");
+const modalButtonSignUp = document.querySelector("#btn__sign-up");
+const modalButtonLogIn = document.querySelector("#btn__login");
+
+const inputsLogin = modalLogin.getElementsByTagName("input");
+const labelsErrorLogin = modalLogin.getElementsByClassName("error");
+
+const inputsSingUp = modalSignUp.getElementsByTagName("input");
+const labelsErrorSignUp = modalSignUp.getElementsByClassName("error");
+const inputPassword = document.getElementById("password");
+const inputPasswordRepeat = document.getElementById("password-repeat");
+const labelErrorPasswordRepeat = document.querySelector("#passwordRepeatError");
+
+let valid = false;
 
 // Открыть/закрыть модальные окна
 signupBtn.addEventListener("click", () => {
@@ -47,36 +58,27 @@ function closeLogin() {
 modalButtonSignUp.addEventListener("click", (e) => {
   e.preventDefault();
   validationSignUp();
+  valid && registration();
 });
 
-// кнопка отправки формы регистрации
+// кнопка отправки формы входа
 modalButtonLogIn.addEventListener("click", (e) => {
   e.preventDefault();
   validationLogIn();
+  valid && login();
 });
-
 
 // Валидация входа
 function validationLogIn() {
-  const inputsLogin = modalLogin.getElementsByTagName("input");
-  const labelsError = modalLogin.getElementsByClassName("error");
-
-  for (let i = 0; i < inputsSingUp.length; i++) {
-    validation(inputsLogin[i], labelsError[i]);
+  for (let i = 0; i < inputsLogin.length; i++) {
+    validation(inputsLogin[i], labelsErrorLogin[i]);
   }
-
 }
 
 // Валидация регистрации
 function validationSignUp() {
-  const inputsSingUp = modalSignUp.getElementsByTagName("input");
-  const labelsError = modalSignUp.getElementsByClassName("error");
-  const inputPassword = document.getElementById("password");
-  const inputPasswordRepeat = document.getElementById("password-repeat");
-  const labelErrorPasswordRepeat = document.querySelector("#passwordRepeatError");
-
   for (let i = 0; i < inputsSingUp.length; i++) {
-    validation(inputsSingUp[i], labelsError[i]);
+    validation(inputsSingUp[i], labelsErrorSignUp[i]);
   }
 
   validationEqualPasswords(
@@ -86,46 +88,53 @@ function validationSignUp() {
   );
 }
 
-
 // Валидация на пустые строки
 function validation(input, label) {
   if (!input.value) {
-    input.classList.add("input-error")
+    input.classList.add("input-error");
     label.textContent = "Заполните поле";
     label.classList.add("error");
+    valid = false;
   } else {
-    input.classList.remove("input-error")
+    input.classList.remove("input-error");
     label.classList.add("hide");
-    input.id !== 'email' && validationLetters(input, label);
+    input.id !== "email" &&
+      !input.classList.contains("input-password") &&
+      validationLetters(input, label);
 
-    input.classList.contains("input-password") && validationLength(input, label)
-    input.id === 'email' && validationEmail(input, label)
+    input.classList.contains("input-password") &&
+      validationLength(input, label);
+    input.id === "email" && validationEmail(input, label);
   }
 }
 
 // Валидация на длинну пароля
 function validationLength(input, label) {
   if (input.value.length < 6) {
-    input.classList.add("input-error")
+    input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = "Пароль должен содержать минимум 6 символов";
     label.classList.add("error");
+    valid = false;
   } else {
-    input.classList.remove("input-error")
+    input.classList.remove("input-error");
     label.classList.add("hide");
+    valid = true;
   }
 }
 
 // Валидация, чтобы в поле были только буквы
 function validationLetters(input, label) {
   if (!/^[A-Za-zА-Яа-яЁё]*$/.test(input.value)) {
-    input.classList.add("input-error")
+    input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = "Можно использовать только латинские буквы и кирилицу";
     label.classList.add("error");
+    valid = false;
   } else {
-    input.classList.remove("input-error")
+    input.classList.remove("input-error");
     label.classList.add("hide");
+    valid = true;
   }
 }
 
@@ -136,18 +145,21 @@ function validationEqualPasswords(password, repeatPassword, label) {
     label.classList.remove("hide");
     label.textContent = "Ваши пароли не совпадают";
     label.classList.add("error");
+    valid = false;
   }
 }
 
 // Валидация email
 function validationEmail(input, label) {
   if (!input.value.includes("@") || !input.value.includes(".")) {
-    input.classList.add("input-error")
+    input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = `Email должен содержать "@" и "."`;
     label.classList.add("error");
+    valid = false;
   } else {
-    input.classList.remove("input-error")
+    input.classList.remove("input-error");
     label.classList.add("hide");
+    valid = true;
   }
 }
