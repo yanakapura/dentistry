@@ -223,7 +223,7 @@
             <div>
               <label>Ваше имя</label>
               <p id="appointment-name"></p>
-              <label for="appointment-number">Номер телефона</label>
+              <label for="appointment-number">Номер телефона <span class="error"></span></label>
               <input
                 type="tel"
                 id="appointment-number"
@@ -234,15 +234,15 @@
               <p id="appointment-email"></p>
             </div>
             <div>
-              <label for="appointment-date">Желаемая дата приема</label>
+              <label for="appointment-date">Желаемая дата приема <span class="error"></span></label>
               <input type="date" id="appointment-date" />
-              <label for="appointment-time">Желаемое время приема</label>
+              <label for="appointment-time">Желаемое время приема <span class="error"></span></label>
               <input type="time" id="appointment-time"/>
             </div>
           </div>
           <div class="section-appointment__reason">
             <div>
-              <label for="appointment-service">Выберите услугу</label>
+              <label for="appointment-service">Выберите услугу <span class="appointment__service-error error"></span></label>
               <select id="appointment-service">
                 <option value="" selected>Выберите услугу</option>
                 <option value="Консультация стоматолога">Консультация стоматолога</option>
@@ -251,9 +251,9 @@
                 <option value="Детская стоматология">Детская стоматология</option>
               </select>
             </div>
-            <label>или</label>
+            <label>и/или</label>
             <div>
-              <label>Напишите свой вопрос, причину обращения</label>
+              <label>Напишите свой вопрос, причину обращения <span class="appointment__textaria-error error"></span></label>
               <textarea
                 id="appointment-text"
                 placeholder="Сообщение"

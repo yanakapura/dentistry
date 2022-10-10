@@ -96,7 +96,6 @@ function validation(input, label) {
   if (!input.value) {
     input.classList.add("input-error");
     label.textContent = "Заполните поле";
-    label.classList.add("error");
     valid = false;
   } else {
     input.classList.remove("input-error");
@@ -117,7 +116,6 @@ function validationLength(input, label) {
     input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = "Пароль должен содержать минимум 6 символов";
-    label.classList.add("error");
     valid = false;
   } else {
     input.classList.remove("input-error");
@@ -132,7 +130,6 @@ function validationLetters(input, label) {
     input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = "Можно использовать только латинские буквы и кирилицу";
-    label.classList.add("error");
     valid = false;
   } else {
     input.classList.remove("input-error");
@@ -147,7 +144,6 @@ function validationEqualPasswords(password, repeatPassword, label) {
     repeatPassword.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = "Ваши пароли не совпадают";
-    label.classList.add("error");
     valid = false;
   }
 }
@@ -158,7 +154,7 @@ function validationEmail(input, label) {
     input.classList.add("input-error");
     label.classList.remove("hide");
     label.textContent = `Email должен содержать "@" и "."`;
-    label.classList.add("error");
+    // label.classList.add("error");
     valid = false;
   } else {
     input.classList.remove("input-error");
