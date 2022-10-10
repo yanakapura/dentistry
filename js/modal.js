@@ -1,3 +1,4 @@
+// Кнопки в хедере
 const signupBtn = document.querySelector(".nav__sign-up");
 const loginBtn = document.querySelector(".nav__login");
 
@@ -7,12 +8,13 @@ const modalLogin = document.querySelector("#modal--login");
 //Кнопка submit в модальных окнах
 const modalButtonSignUp = document.querySelector("#btn__sign-up");
 const modalButtonLogIn = document.querySelector("#btn__login");
-
+// Все инпуты и лейблы в форме входа
 const inputsLogin = modalLogin.getElementsByTagName("input");
 const labelsErrorLogin = modalLogin.getElementsByClassName("error");
-
+// Все инпуты и лейблы в форме регистрации
 const inputsSingUp = modalSignUp.getElementsByTagName("input");
 const labelsErrorSignUp = modalSignUp.getElementsByClassName("error");
+
 const inputPassword = document.getElementById("password");
 const inputPasswordRepeat = document.getElementById("password-repeat");
 const labelErrorPasswordRepeat = document.querySelector("#passwordRepeatError");
