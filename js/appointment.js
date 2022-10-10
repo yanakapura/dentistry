@@ -1,7 +1,7 @@
 const btnAppointment = document.querySelector(".section-appointment__button");
 const appointmentName = document.querySelector("#appointment-name");
 const appointmentEmail = document.querySelector("#appointment-email");
-const appointmentInputs = document.querySelector("input");
+const appointmentInputs = document.getElementsByTagName("input");
 const appointmentTextAria = document.querySelector("#appointment-text")
 
 const appointmentsArr = [];
@@ -21,7 +21,6 @@ btnAppointment.addEventListener("click", (e) => {
 
     appointmentObj.message = appointmentTextAria.value;
 
-    // appointmentsArr.push(appointmentObj)
     !activeAcc.appointments
       ? (activeAcc.appointments = [])
       : activeAcc.appointments;
@@ -37,14 +36,19 @@ btnAppointment.addEventListener("click", (e) => {
     data[clientIndex] = activeAcc;
     localStorage.setItem("data", JSON.stringify(data));
 
+    alert("Запись добавлена!")
+
     clearAppoinmentForm()
   } else {
     openLogin();
   }
 });
 
+console.log(appointmentInputs);
 function clearAppoinmentForm() {
+    console.log('to clear');
     for (input of appointmentInputs) {
+        console.log(input);
         input.value = ""
     }
     appointmentTextAria.value = ""
