@@ -66,6 +66,7 @@ modalButtonLogIn.addEventListener("click", (e) => {
   e.preventDefault();
   validationLogIn();
   valid && login();
+  valid && location.href.includes('account') && location.reload();
 });
 
 // Валидация входа

@@ -3,6 +3,8 @@ const accountNav = document.querySelector("#account-nav");
 
 let data = [];
 
+// localStorage.setItem('isLoggedIn', false)
+
 // Берем данные из localstorage
 const dataFromLocaleStorage = JSON.parse(localStorage.getItem("data"));
 // Проверяем, есть ли в них что-то, и, если есть = присваиваем их переменной data, если нет, оставляем data пустым массивом
@@ -20,10 +22,13 @@ function registration() {
   // Пушаем объект в конец массива с данными, переводим в сторку JSON и помещаем обратно в localstorage
   data.push(newClient);
   data = JSON.stringify(data);
-
   localStorage.setItem("data", data);
-  showAccountNav(newClient)
-  closeRegistration()
+
+  localStorage.setItem("isLoggedIn", true);
+  localStorage.setItem("activeAcc", JSON.stringify(newClient));
+
+  showAccountNav(newClient);
+  closeRegistration();
 }
 
 // Функция входа
@@ -52,6 +57,10 @@ function login() {
     }
   } else {
     errorTitle.classList.add("hide");
+
+    localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("activeAcc", JSON.stringify(client));
+
     showAccountNav(client);
     closeLogin();
   }
@@ -62,8 +71,22 @@ function showAccountNav(clientObj) {
   loginBtn.classList.add("hide");
   accountNav.classList.remove("hide");
 
-  const clientName = document.querySelector(".nav__account--name")
+  const clientName = document.querySelector(".nav__account--name");
 
-  const name = `${clientObj.firstName} ${clientObj.lastName}`
+  const name = `${clientObj.firstName} ${clientObj.lastName}`;
   clientName.textContent = name;
 }
+
+const loggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+const activeAcc = JSON.parse(localStorage.getItem("activeAcc"));
+
+function isLoggedIn() {
+  if (loggedIn === true) {
+    showAccountNav(activeAcc);
+  } else {
+    accountNav.classList.add('hide')
+  }
+}
+
+isLoggedIn();
+

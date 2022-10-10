@@ -19,7 +19,7 @@ body {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.nav__button {
+.nav__button, #account-nav {
   border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -28,9 +28,19 @@ body {
   border-bottom: 1px solid black;
 }
 
-.nav__button:hover {
+.nav__button:hover, #account-nav:hover {
   color: black;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav__account--img::before {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+/* Modal */
+
+.modal__button {
+  background-color: black;
 }
 
 /**************** Contacts section ****************/
@@ -71,3 +81,4 @@ body {
 .contacts-section__description h4 {
     margin-bottom: 5px;
 }
+

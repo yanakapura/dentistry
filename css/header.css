@@ -90,6 +90,7 @@
 
 .nav__account--img {
   position: relative;
+  margin-right: 10px;
 }
 
 .nav__account--img img {

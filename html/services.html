@@ -55,7 +55,7 @@
           <div class="nav__account--img">
             <img src="../image/icons/person.svg" alt="" />
           </div>
-          <a class="nav__account--name">Иван Иванов</a>
+          <a class="nav__account--name" href="../html/account.html"></a>
         </div>
       </nav>
     </header>
@@ -222,7 +222,7 @@
           <div class="flex">
             <div>
               <label>Ваше имя</label>
-              <p id="appointment-name">Мария</p>
+              <p id="appointment-name"></p>
               <label for="appointment-number">Номер телефона</label>
               <input
                 type="tel"
@@ -231,23 +231,24 @@
                 placeholder="+111(22)333-44-55"
               />
               <label>E-mail</label>
-              <p id="appointment-email">email@gmail.com</p>
+              <p id="appointment-email"></p>
             </div>
             <div>
               <label for="appointment-date">Желаемая дата приема</label>
               <input type="date" id="appointment-date" />
               <label for="appointment-time">Желаемое время приема</label>
-              <input type="time" id="appointment-time" />
+              <input type="time" id="appointment-time"/>
             </div>
           </div>
           <div class="section-appointment__reason">
             <div>
-              <label>Выберите услугу</label>
-              <select name="" id="">
-                <option value="">Консультация стоматолога</option>
-                <option value="">Эстетическая стоматология</option>
-                <option value="">Терапевтическая стоматология</option>
-                <option value="">Детская стоматология</option>
+              <label for="appointment-service">Выберите услугу</label>
+              <select id="appointment-service">
+                <option value="" selected>Выберите услугу</option>
+                <option value="Консультация стоматолога">Консультация стоматолога</option>
+                <option value="Эстетическая стоматология">Эстетическая стоматология</option>
+                <option value="Терапевтическая стоматология">Терапевтическая стоматология</option>
+                <option value="Детская стоматология">Детская стоматология</option>
               </select>
             </div>
             <label>или</label>
@@ -270,64 +271,45 @@
       <div class="modal" id="modal--sign-up">
         <h3 class="modal__title">Регистрация</h3>
         <form class="modal__form">
-          <label for="name">Имя</label>
-          <input type="text" id="name" pattern="^[A-Za-zА-Яа-яЁё]+$" required />
-          <label for="surname">Фамилия</label>
-          <input
-            type="text"
-            id="surname"
-            pattern="^[A-Za-zА-Яа-яЁё]+$"
-            required
-          />
-          <label for="password">Пароль</label>
-          <input
-            type="password"
-            id="password"
-            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
-            required
-          />
-          <label for="password-repeat">Повторите пароль</label>
-          <input
-            type="password"
-            id="password-repeat"
-            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
-            required
-          />
-          <label for="email">Email</label>
-          <input type="email" id="email" required />
-          <button class="modal__button btn" type="submit">
-            Зарегистрироваться
-          </button>
+          <label for="name">Имя<span id="nameError" class="errorName error" ></span></label>
+          <input class="name" type="text" id="name"/>
+
+          <label for="surname">Фамилия<span id="surnameError" class="errorSurname error"></span></label>
+          <input type="text" id="surname"/>
+
+          <label for="password">Пароль<span id="passwordError" class="errorPassword error"></span></label>
+          <input type="password" id="password" class="input-password"/>
+
+          <label for="password-repeat">Повторите пароль<span id="passwordRepeatError" class="errorPassword error"></label>
+          <input type="password" id="password-repeat" class="input-password"/>
+
+          <label for="email">Email<span id="emailError" class="errorEmail error"></label>
+          <input type="email" id="email" />
+
+          <button class="modal__button btn" id="btn__sign-up" type="submit"> Зарегистрироваться</button>
+        
         </form>
         <img class="modal__close" src="../image/icons/close.svg" alt="" />
       </div>
       <div class="modal" id="modal--login">
         <h3 class="modal__title">Войти</h3>
+        <span class="errorTitle hide">Логин или пароль введены неправильно, повторите попытку</span>
         <form class="modal__form">
-          <label for="login-name">Имя</label>
-          <input
-            type="text"
-            id="login-name"
-            pattern="^[A-Za-zА-Яа-яЁё]+$"
-            required
-          />
-          <label for="login-surname">Фамилия</label>
-          <input
-            type="text"
-            id="login-surname"
-            pattern="^[A-Za-zА-Яа-яЁё]+$"
-            required
-          />
-          <label for="login-password">Пароль</label>
-          <input
-            type="password"
-            id="login-password"
-            pattern="^[A-Za-zА-Яа-яЁё0-9]{6,}"
-            required
-          />
-          <button class="modal__button btn" type="submit">Войти</button>
+
+          <label for="login-name">Имя<span class="errorNameLogIn error"></span></label>
+          <input class="name" type="text" id="login-name"/>
+
+          <label for="login-surname">Фамилия<span class="errorSurnameLogIn error"></span></label>
+          <input type="text" id="login-surname"/>
+
+          <label for="login-password">Пароль<span id="login-passwordError" class="errorPasswordLogIn error"></span
+          ></label>
+          <input type="password" class="input-password" id="login-password"/>
+
+          <button class="modal__button btn" id="btn__login" type="submit">Войти</button>
         </form>
         <img class="modal__close" src="../image/icons/close.svg" alt="" />
+
       </div>
     </div>
 
@@ -366,5 +348,7 @@
     </footer>
 
     <script src="../js/modal.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/appointment.js"></script>
   </body>
 </html>
