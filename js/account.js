@@ -12,8 +12,8 @@ loadAccount();
 
 // Загрузка записей на прием в таблицу на личной странице
 function loadAppointments() {
-  // Сортируем записи по дате
-  activeAcc.appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
+  // Если записей больше одной, сортируем записи по дате
+  activeAcc.appointments.length > 1 && activeAcc.appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
   // Для каждой записи создаем строку таблицы
   for (appointment of activeAcc.appointments) {
     const newAppointment = document.createElement("tr");

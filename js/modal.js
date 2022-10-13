@@ -74,14 +74,14 @@ modalButtonLogIn.addEventListener("click", (e) => {
 // Валидация входа
 function validationLogIn() {
   for (let i = 0; i < inputsLogin.length; i++) {
-    validation(inputsLogin[i], labelsErrorLogin[i]);
+    validationModal(inputsLogin[i], labelsErrorLogin[i]);
   }
 }
 
 // Валидация регистрации
 function validationSignUp() {
   for (let i = 0; i < inputsSingUp.length; i++) {
-    validation(inputsSingUp[i], labelsErrorSignUp[i]);
+    validationModal(inputsSingUp[i], labelsErrorSignUp[i]);
   }
 
   validationEqualPasswords(
@@ -92,7 +92,20 @@ function validationSignUp() {
 }
 
 // Валидация на пустые строки
-function validation(input, label) {
+function validation (input, label) {
+  if (!input.value || input.value === 'disabled') {
+      input.classList.add("input-error");
+      label.textContent = "Заполните поле";
+      valid = false;
+    } else {
+      input.classList.remove("input-error");
+      label.classList.add("hide");
+      valid = true;
+    }
+}
+
+// Валидация модальных окон на пустые строки
+function validationModal(input, label) {
   if (!input.value) {
     input.classList.add("input-error");
     label.textContent = "Заполните поле";

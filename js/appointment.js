@@ -35,8 +35,8 @@ btnAppointment.addEventListener("click", (e) => {
       activeAcc.appointments
         ? activeAcc.appointments
         : (activeAcc.appointments = []);
-      // Добавляем полученные данные о записи в обект active account и перезаписываем его в localeStorage
-      activeAcc.appointments.push(appointmentObj);
+        // Добавляем полученные данные о записи в обект active account и перезаписываем его в localeStorage
+        activeAcc.appointments.push(appointmentObj);
       localStorage.setItem("activeAcc", JSON.stringify(activeAcc));
       // Находим в общей базе клиентов клиента, в аккаунт которого выполнен вход
       const clientIndex = data.findIndex(
@@ -63,21 +63,10 @@ btnAppointment.addEventListener("click", (e) => {
 // Функция валидации формы записи
 function validationAppointment() {
   for (let i = 0; i < appointmentInputs.length; i++) {
-    validationApp(appointmentInputs[i], appointmentLabelsError[i]);
+    validation(appointmentInputs[i], appointmentLabelsError[i]);
     
   }
-    validationApp(appointmentSelect, appointmentSelectError)
-}
-
-function validationApp (input, label) {
-    if (!input.value) {
-        input.classList.add("input-error");
-        label.textContent = "Заполните поле";
-        valid = false;
-      } else {
-        input.classList.remove("input-error");
-        label.classList.add("hide");
-      }
+  validation(appointmentSelect, appointmentSelectError)
 }
 
 // Функция очистки формы записи
@@ -86,6 +75,7 @@ function clearAppoinmentForm() {
     input.value = "";
   }
   appointmentTextAria.value = "";
+  appointmentSelect.value = 'disabled'
 }
 
 // Загружаем имя и email пользователя в форму записи
