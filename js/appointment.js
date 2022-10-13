@@ -82,5 +82,13 @@ function clearAppoinmentForm() {
 function loadAppointment() {
   appointmentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
   appointmentEmail.textContent = activeAcc.email;
+
+  let servicesCategories = JSON.parse(localStorage.getItem("services-categories"));
+  for (service of servicesCategories) {
+    const newOption = document.createElement('option')
+    newOption.value = service;
+    newOption.textContent = service;
+    appointmentSelect.appendChild(newOption)
+  }
 }
 loadAppointment();

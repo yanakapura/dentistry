@@ -1,3 +1,21 @@
+const commentsTemp = [
+  {
+      name: 'Елена',
+      service: 'Консультация стоматолога',
+      doctor: 'Иванов Иван Иванович',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.', 
+      date: '15.07.2022'
+  },
+  {
+      name: 'Антон',
+      service: 'Консультация стоматолога',
+      doctor: 'Иванов Иван Иванович',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.', 
+      date: '15.07.2022'
+  },
+]
+
+
 const commentSection = document.querySelector(".comments-section__comments")
 
 const newCommentName = document.querySelector("#comment-name");
@@ -18,26 +36,10 @@ const newCommentTextareaError = document.querySelector(
 
 let comments = JSON.parse(localStorage.getItem("comments"));
 
-const commentsTemp = [
-    {
-        name: 'Елена',
-        service: 'Консультация стоматолога',
-        doctor: 'Иванов Иван Иванович',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.', 
-        date: '15.07.2022'
-    },
-    {
-        name: 'Антон',
-        service: 'Консультация стоматолога',
-        doctor: 'Иванов Иван Иванович',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.', 
-        date: '15.07.2022'
-    },
-]
+comments ? comments : (comments = commentsTemp);
 
 function loadComments() {
   newCommentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
-  comments ? comments : (comments = commentsTemp);
   for (comment of comments) {
       const newComment = document.createElement("li");
       newComment.classList = "comments-section__comment comment";
@@ -90,3 +92,20 @@ function validationComment() {
   validation(newCommentSelectDoctors, newCommentSelectDoctorsError);
   validation(newCommentTextarea, newCommentTextareaError);
 }
+
+function loadSelects() {
+    for (service of servicesCategories) {
+      const newOption = document.createElement('option')
+      newOption.value = service;
+      newOption.textContent = service;
+      newCommentSelectService.appendChild(newOption)
+    }
+    for (doctor of personal) {
+      const newOption = document.createElement('option')
+      newOption.value = doctor.name;
+      newOption.textContent = doctor.name;
+      newCommentSelectDoctors.appendChild(newOption)
+    }
+}
+
+loadSelects()
