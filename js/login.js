@@ -24,9 +24,12 @@ function registration() {
   data = JSON.stringify(data);
   localStorage.setItem("data", data);
 
+  // Вносим данные в localeStorage о том, что был выполнен вход в аккаунт
   localStorage.setItem("isLoggedIn", true);
+  // Вносим в localeStorage данные об активном клиенте
   localStorage.setItem("activeAcc", JSON.stringify(newClient));
 
+  // Отображаем в хедере аккаунт клиента
   showAccountNav(newClient);
   closeRegistration();
 }
@@ -47,8 +50,6 @@ function login() {
       el.password === inputedInfo.password
   );
 
-  console.log(client);
-
   // Если такого элемента нет, выводим ошибку
   if (!client) {
     errorTitle.classList.remove("hide");
@@ -66,6 +67,7 @@ function login() {
   }
 }
 
+// Функция отображения аккаунта клиента в хедере
 function showAccountNav(clientObj) {
   signupBtn.classList.add("hide");
   loginBtn.classList.add("hide");
@@ -77,11 +79,13 @@ function showAccountNav(clientObj) {
   clientName.textContent = name;
 }
 
+// Получаем из localeStorage данные о том, был ли выполнен вход в аккаунт, и данные активного клиента
 const loggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 const activeAcc = JSON.parse(localStorage.getItem("activeAcc"));
 
+// Если выполнен вход в аккаунт, отображаем аккаунт в хедере
 function isLoggedIn() {
-  if (loggedIn === true) {
+  if (loggedIn === true) { 
     showAccountNav(activeAcc);
   } else {
     accountNav.classList.add('hide')

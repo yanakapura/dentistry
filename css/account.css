@@ -55,6 +55,11 @@ body {
   transform: translateY(-100px);
 }
 
+.account-section__table {
+  max-height: 300px;
+  overflow: scroll;
+}
+
 .appointments {
   background-color: white;
   color: black;

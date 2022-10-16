@@ -1,19 +1,13 @@
+const servicesCategoriesTemp = [
+  'Консультация стоматолога',
+  'Эстетическая стоматология',
+  'Терапевтическая стоматология',
+  'Детская стоматология'
+]
 
-const heroBtn = document.querySelector(".hero-section__button");
-const heroCircle = document.querySelector(".circle");
+let servicesCategories = JSON.parse(localStorage.getItem("services-categories"));
 
-// Анимация стрелки на hero section
-heroBtn.addEventListener("mouseout", () => {
-  outAnimation();
-});
-
-function outAnimation() {
-  heroCircle.classList.add("out");
-  heroBtn.classList.add("out");
-
-  setTimeout(() => {
-    heroCircle.classList.remove("out");
-    heroBtn.classList.remove("out");
-  }, 300);
+if (!servicesCategories) {
+  servicesCategories = servicesCategoriesTemp;
+  localStorage.setItem('services-categories', JSON.stringify(servicesCategories))
 }
-
