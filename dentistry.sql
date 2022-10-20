@@ -22,17 +22,17 @@ USE `dentistry` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentistry`.`clients` (
   `id_clients` INT NOT NULL AUTO_INCREMENT,
-  `first_name` VARCHAR(45) NULL,
-  `last_name` VARCHAR(45) NULL,
+  `firstName` VARCHAR(45) NULL,
+  `lastName` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
   PRIMARY KEY (`id_clients`),
   UNIQUE INDEX `id_clients_UNIQUE` (`id_clients` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `dentistry`.`clients` (`id_clients`, `first_name`, `last_name`, `password`, `email`) VALUES ('1', 'Оксана', 'Орехова', '111111', 'orechova@gmail.com');
-INSERT INTO `dentistry`.`clients` (`id_clients`, `first_name`, `last_name`, `password`, `email`) VALUES ('2', 'Егор', 'Власов', '123456', 'vlasov@mail.ru');
-INSERT INTO `dentistry`.`clients` (`id_clients`, `first_name`, `last_name`, `password`, `email`) VALUES ('3', 'Иван', 'Павленко', 'qwertyclients', 'vlasov@mail.ru');
+INSERT INTO `dentistry`.`clients` (`id_clients`, `firstName`, `lastName`, `password`, `email`) VALUES ('1', 'Оксана', 'Орехова', '111111', 'orechova@gmail.com');
+INSERT INTO `dentistry`.`clients` (`id_clients`, `firstName`, `lastName`, `password`, `email`) VALUES ('2', 'Егор', 'Власов', '123456', 'vlasov@mail.ru');
+INSERT INTO `dentistry`.`clients` (`id_clients`, `firstName`, `lastName`, `password`, `email`) VALUES ('3', 'Иван', 'Павленко', 'qwertyclients', 'vlasov@mail.ru');
 
 -- -----------------------------------------------------
 -- Table `dentistry`.`service_categories`

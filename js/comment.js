@@ -39,7 +39,7 @@ let comments = JSON.parse(localStorage.getItem("comments"));
 comments ? comments : (comments = commentsTemp);
 
 function loadComments() {
-  newCommentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
+  newCommentName.textContent = Object.keys(activeAcc).length ? `${activeAcc.firstName} ${activeAcc.lastName}` : '(зарегистрируйтесь или войдите в аккаунт)';
   for (comment of comments) {
       const newComment = document.createElement("li");
       newComment.classList = "comments-section__comment comment";
@@ -94,12 +94,15 @@ function validationComment() {
 }
 
 function loadSelects() {
-    for (service of servicesCategories) {
-      const newOption = document.createElement('option')
-      newOption.value = service;
-      newOption.textContent = service;
-      newCommentSelectService.appendChild(newOption)
-    }
+    getServicesCategories().then(serviceCategories=>{
+      for (service of serviceCategories) {
+        const newOption = document.createElement("option");
+        newOption.value = service.service_category;
+        newOption.textContent = service.service_category;
+        newOption.dataset.id = service.id_service_categoty
+        newCommentSelectService.appendChild(newOption);
+      }
+    })
     for (doctor of personal) {
       const newOption = document.createElement('option')
       newOption.value = doctor.name;
