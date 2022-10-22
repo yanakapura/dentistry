@@ -42,3 +42,24 @@ async function getServicesCategories() {
   let { data } = await response.json();
   return data;
 }
+
+// Получаем данные с сервера из таблицы personal
+async function getPersonal() {
+  let response = await fetch("http://localhost:5002/getPersonal");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы comments
+async function getComments() {
+  let response = await fetch("http://localhost:5002/getComments");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы clients
+async function getClient1() {
+  let response = await fetch("http://localhost:5002/getClient1");
+  let { data } = await response.json();
+  return data;
+}

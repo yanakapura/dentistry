@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "dentistry",
-  password: "student",
+  password: "Taximoto_12345678",
 });
 
 // Проверяем соединения с MySQL
@@ -23,8 +23,24 @@ connection.connect((err) => {
   }
 });
 
-// Выбираем из таблицы
+// Выбираем из таблицы clients
 connection.query(`select * from dentistry.clients`, (err, res) => {
+  for (let i = 0; i < res.length; i++) {
+    let newRes = res[i];
+    return console.log(newRes);
+  }
+});
+
+// Выбираем из таблицы personal
+connection.query(`select * from dentistry.personal`, (err, res) => {
+  for (let i = 0; i < res.length; i++) {
+    let newRes = res[i];
+    return console.log(newRes);
+  }
+});
+
+// Выбираем из таблицы comments
+connection.query(`select * from dentistry.comments`, (err, res) => {
   for (let i = 0; i < res.length; i++) {
     let newRes = res[i];
     return console.log(newRes);
@@ -115,7 +131,7 @@ class DbService {
     }
   }
 
-  // Получение данных из таблицы clients
+  // Получение данных из таблицы service_categories
   async getServicesCategories() {
     try {
       const response = await new Promise((resolve, reject) => {
@@ -126,6 +142,57 @@ class DbService {
         });
       });
       //   console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Получение данных из таблицы personal
+  async getPersonal() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query = `SELECT * FROM dentistry.personal`;
+        connection.query(query, (err, result) => {
+          if (err) reject(new Error(err.message));
+          else resolve(result);
+        });
+      });
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Получение данных из таблицы comments
+  async getComments() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query = `SELECT * FROM dentistry.comments`;
+        connection.query(query, (err, result) => {
+          if (err) reject(new Error(err.message));
+          else resolve(result);
+        });
+      });
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Получение данных из таблицы clients
+  async getClient1() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query = `SELECT * FROM dentistry.clients`;
+        connection.query(query, (err, result) => {
+          if (err) reject(new Error(err.message));
+          else resolve(result);
+        });
+      });
+      console.log(response);
       return response;
     } catch (error) {
       console.log(error);
