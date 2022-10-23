@@ -17,23 +17,23 @@ function loadAppointments() {
     appointments.length > 1 &&
       appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-      // Получаем список всех категорий услуг из БД
-      getServicesCategories().then((serviceCategories) => {
-        for (appointment of appointments) {
-          // Для каждой записи создаем строку таблицы
-          const newAppointment = document.createElement("tr");
+    // Получаем список всех категорий услуг из БД
+    getServicesCategories().then((serviceCategories) => {
+      for (appointment of appointments) {
+        // Для каждой записи создаем строку таблицы
+        const newAppointment = document.createElement("tr");
         newAppointment.classList.add("appointments__item");
 
         // Находим название услуги по id
         const caterogyName = serviceCategories.find(
-          (el) => el.id_service_categoty === appointment.service_category_id
+          (el) => el.id_service_category === appointment.service_category_id
         ).service_category;
 
         newAppointment.innerHTML = `
         <td>${new Date(appointment.date).toLocaleDateString("ru-RB")}</td>
         <td>${appointment.time.slice(0, 5)}</td>
         <td>${caterogyName}</td>`;
-        
+
         // Добавляем строку в таблицу
         accAppointments.appendChild(newAppointment);
       }
@@ -46,7 +46,7 @@ loadAppointments();
 function findCategoryName(id) {
   getServicesCategories().then((serviceCategories) => {
     const caterogyName = serviceCategories.find(
-      (el) => el.id_service_categoty === id
+      (el) => el.id_service_category === id
     ).service_category;
     console.log(caterogyName);
     return caterogyName;
@@ -67,5 +67,5 @@ function toLogeOut() {
   signupBtn.classList.remove("hide");
   loginBtn.classList.remove("hide");
 
-  location.replace("../index.html")
+  location.replace("../index.html");
 }

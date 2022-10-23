@@ -38,7 +38,7 @@ btnAppointment.addEventListener("click", (e) => {
       appointmentObj.id = activeAcc.id_clients;
 
       // Отправляем данные о записи на прием в базу данных
-      makeAppointment(appointmentObj)
+      makeAppointment(appointmentObj);
 
       // Проверяем, есть ли в базе данные о записи и, если нет, создаем пустой масссив
       activeAcc.appointments
@@ -78,17 +78,21 @@ function clearAppoinmentForm() {
 
 // Загружаем имя и email пользователя в форму записи
 function loadAppointment() {
-  appointmentName.textContent = Object.keys(activeAcc).length ? `${activeAcc.firstName} ${activeAcc.lastName}` : '(зарегистрируйтесь или войдите в аккаунт)';
-  appointmentEmail.textContent = Object.keys(activeAcc).length ? activeAcc.email : '(зарегистрируйтесь или войдите в аккаунт)';
+  appointmentName.textContent = Object.keys(activeAcc).length
+    ? `${activeAcc.firstName} ${activeAcc.lastName}`
+    : "(зарегистрируйтесь или войдите в аккаунт)";
+  appointmentEmail.textContent = Object.keys(activeAcc).length
+    ? activeAcc.email
+    : "(зарегистрируйтесь или войдите в аккаунт)";
 
-  getServicesCategories().then(serviceCategories=>{
+  getServicesCategories().then((serviceCategories) => {
     for (service of serviceCategories) {
       const newOption = document.createElement("option");
       newOption.value = service.service_category;
       newOption.textContent = service.service_category;
-      newOption.dataset.id = service.id_service_categoty;
+      newOption.dataset.id = service.id_service_category;
       appointmentSelect.appendChild(newOption);
     }
-  })
+  });
 }
 loadAppointment();

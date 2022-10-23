@@ -11,7 +11,8 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "dentistry",
-  password: "Taximoto_12345678",
+  // password: "Taximoto_12345678",
+  password: "student",
 });
 
 // Проверяем соединения с MySQL
@@ -183,7 +184,7 @@ class DbService {
   }
 
   //Получение данных из таблицы clients
-  async getClient1() {
+  async getClients() {
     try {
       const response = await new Promise((resolve, reject) => {
         const query = `SELECT * FROM dentistry.clients`;

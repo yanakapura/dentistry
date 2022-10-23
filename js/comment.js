@@ -1,19 +1,19 @@
-const commentsTemp = [
-  {
-    name: "Елена",
-    service: "Консультация стоматолога",
-    doctor: "Иванов Иван Иванович",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
-    date: "15.07.2022",
-  },
-  {
-    name: "Антон",
-    service: "Консультация стоматолога",
-    doctor: "Иванов Иван Иванович",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
-    date: "15.07.2022",
-  },
-];
+// const commentsTemp = [
+//   {
+//     name: "Елена",
+//     service: "Консультация стоматолога",
+//     doctor: "Иванов Иван Иванович",
+//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
+//     date: "15.07.2022",
+//   },
+//   {
+//     name: "Антон",
+//     service: "Консультация стоматолога",
+//     doctor: "Иванов Иван Иванович",
+//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
+//     date: "15.07.2022",
+//   },
+// ];
 
 const commentSection = document.querySelector(".comments-section__comments");
 
@@ -33,31 +33,31 @@ const newCommentTextareaError = document.querySelector(
   ".comment-textarea--error"
 );
 
-let comments = JSON.parse(localStorage.getItem("comments"));
+// let comments = JSON.parse(localStorage.getItem("comments"));
 
-comments ? comments : (comments = commentsTemp);
+// comments ? comments : (comments = commentsTemp);
 
 // Загрузка комментариев из бд
 function loadComments() {
-  //newCommentName.textContent = Object.keys(activeAcc).length
-  // ? `${activeAcc.firstName} ${activeAcc.lastName}`
-  // : "(зарегистрируйтесь или войдите в аккаунт)";
+  newCommentName.textContent = Object.keys(activeAcc).length
+    ? `${activeAcc.firstName} ${activeAcc.lastName}`
+    : "(зарегистрируйтесь или войдите в аккаунт)";
   getComments().then((comments) => {
     getPersonal().then((allPersonal) => {
-      getClient1().then((clients) => {
+      getClients().then((clients) => {
         getServicesCategories().then((categories) => {
           categories.forEach((category) => {
             clients.forEach((client) => {
               allPersonal.forEach((doctor) => {
                 comments.forEach((comment) => {
                   if (comment.dentist_id === doctor.id_personal) {
-                    toString(doctor.name);
+                    // toString(doctor.name);
                     if (comment.client_id === client.id_clients) {
                       if (
                         comment.service_category_id ===
-                        category.id_service_categoty
+                        category.id_service_category
                       ) {
-                        toString(category.service_category);
+                        // toString(category.service_category);
                         const newComment = document.createElement("li");
                         newComment.classList =
                           "comments-section__comment comment";
@@ -73,7 +73,9 @@ function loadComments() {
               <p class="comment__comment">
                 ${comment.comment}
               </p>
-              <span class="comment__date">${comment.date}</span>
+              <span class="comment__date">${new Date(
+                comment.date
+              ).toLocaleDateString()}</span>
               </div>
               `;
                         commentSection.appendChild(newComment);
@@ -127,7 +129,7 @@ function loadSelects() {
       const newOption = document.createElement("option");
       newOption.value = service.service_category;
       newOption.textContent = service.service_category;
-      newOption.dataset.id = service.id_service_categoty;
+      newOption.dataset.id = service.id_service_category;
       newCommentSelectService.appendChild(newOption);
     }
   });
@@ -138,6 +140,7 @@ function loadSelects() {
       const newOption = document.createElement("option");
       newOption.value = doctor.name;
       newOption.textContent = doctor.name;
+      newOption.dataset.id = doctor.id_personal;
       newCommentSelectDoctors.appendChild(newOption);
     }
   });

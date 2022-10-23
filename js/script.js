@@ -58,8 +58,8 @@ async function getComments() {
 }
 
 // Получаем данные с сервера из таблицы clients
-async function getClient1() {
-  let response = await fetch("http://localhost:5002/getClient1");
+async function getClients() {
+  let response = await fetch("http://localhost:5002/getClients");
   let { data } = await response.json();
   return data;
 }

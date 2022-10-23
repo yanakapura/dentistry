@@ -126,10 +126,10 @@ app.get("/getComments", (request, response) => {
 });
 
 // Отправляем клиенту данные о клиентах
-app.get("/getClient1", (request, response) => {
+app.get("/getClients", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
-  const result = db.getClient1();
+  const result = db.getClients();
   console.log(result);
 
   result
