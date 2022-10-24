@@ -1,20 +1,3 @@
-// const commentsTemp = [
-//   {
-//     name: "Елена",
-//     service: "Консультация стоматолога",
-//     doctor: "Иванов Иван Иванович",
-//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
-//     date: "15.07.2022",
-//   },
-//   {
-//     name: "Антон",
-//     service: "Консультация стоматолога",
-//     doctor: "Иванов Иван Иванович",
-//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ea libero atque dignissimos ratione esse fugiat, commodi iure voluptates accusamus, laudantium quo tempora debitis! Fuga pariatur quas in rerum voluptatum.",
-//     date: "15.07.2022",
-//   },
-// ];
-
 const commentSection = document.querySelector(".comments-section__comments");
 
 const newCommentName = document.querySelector("#comment-name");
@@ -33,15 +16,14 @@ const newCommentTextareaError = document.querySelector(
   ".comment-textarea--error"
 );
 
-// let comments = JSON.parse(localStorage.getItem("comments"));
-
-// comments ? comments : (comments = commentsTemp);
-
 // Загрузка комментариев из бд
 function loadComments() {
-  newCommentName.textContent = Object.keys(activeAcc).length
-    ? `${activeAcc.firstName} ${activeAcc.lastName}`
-    : "(зарегистрируйтесь или войдите в аккаунт)";
+  if (activeAcc && Object.keys(activeAcc).length) {
+    newCommentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
+  } else {
+    newCommentName.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+  }
+
   getComments().then((comments) => {
     getPersonal().then((allPersonal) => {
       getClients().then((clients) => {
@@ -96,25 +78,46 @@ loadComments();
 
 newCommentBtn.addEventListener("click", addComment);
 
+
+// Валидация и добавление нового комментария в бд через форму
 function addComment(e) {
   e.preventDefault();
+  // Валидация
   validationComment();
   if (loggedIn) {
     if (valid) {
       const newComment = {};
-      newComment.name = activeAcc.firstName;
-      newComment.service = newCommentSelectService.value; //.options[appointmentSelect.selectedIndex].value
-      newComment.doctor = newCommentSelectDoctors.value;
+      newComment.service =
+        newCommentSelectService.options[
+          newCommentSelectService.selectedIndex
+        ].dataset.id;
+
+      newComment.name = activeAcc.id_clients;
+      newComment.doctor =
+        newCommentSelectDoctors.options[
+          newCommentSelectService.selectedIndex
+        ].dataset.id;
+
       newComment.text = newCommentTextarea.value;
-      newComment.date = new Date().toLocaleDateString();
-      comments.push(newComment);
-      localStorage.setItem("comments", JSON.stringify(comments));
-      location.reload();
+      newComment.date = new Date().toLocaleDateString('fr-CA');
+      addCommentBD(newComment);
+
+      clearCommentForm()
+      setTimeout(() => {
+        location.reload();
+        }, 1000);
     }
   } else {
     //   Если не выполнен вход в аккаунт, открывается форма входа
     openLogin();
   }
+}
+
+// Функция очистки формы записи
+function clearCommentForm() {
+  newCommentTextarea.value = ''
+  newCommentSelectService.value = "disabled";
+  newCommentSelectDoctors.value = "disabled";
 }
 
 function validationComment() {

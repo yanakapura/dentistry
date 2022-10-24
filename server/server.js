@@ -95,6 +95,29 @@ app.get("/getAppointments", (request, response) => {
     .catch((err) => console.log(err));
 });
 
+// Принимаем данные о записи на прием от клиента
+app.post("/comment", (request, response) => {
+  const comment = request.body;
+  const clientId = comment.name;
+  const serviceCategory = comment.service;
+  const dentistId = comment.doctor;
+  const text = comment.text;
+  const date = comment.date;
+
+  const db = dbService.getDbServiceInstance();
+  const result = db.insertNewComment(
+    clientId,
+    serviceCategory,
+    dentistId,
+    text,
+    date
+  );
+
+  result
+    .then((data) => response.json({ success: true }))
+    .catch((err) => console.log(err));
+});
+
 // Отправляем клиенту данные о категриях услуг
 app.get("/getServicesCategories", (request, response) => {
   const db = dbService.getDbServiceInstance();
@@ -111,7 +134,6 @@ app.get("/getPersonal", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getPersonal();
-  console.log(result);
 
   result
     .then((data) => response.json({ data: data }))
@@ -123,7 +145,6 @@ app.get("/getComments", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getComments();
-  console.log(result);
 
   result
     .then((data) => response.json({ data: data }))
@@ -135,7 +156,6 @@ app.get("/getClients", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getClients();
-  console.log(result);
 
   result
     .then((data) => response.json({ data: data }))
@@ -147,7 +167,6 @@ app.get("/getServices", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getServices();
-  console.log(result);
 
   result
     .then((data) => response.json({ data: data }))

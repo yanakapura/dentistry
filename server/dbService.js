@@ -24,30 +24,6 @@ connection.connect((err) => {
   }
 });
 
-// Выбираем из таблицы clients
-connection.query(`select * from dentistry.clients`, (err, res) => {
-  for (let i = 0; i < res.length; i++) {
-    let newRes = res[i];
-    return console.log(newRes);
-  }
-});
-
-// Выбираем из таблицы personal
-connection.query(`select * from dentistry.personal`, (err, res) => {
-  for (let i = 0; i < res.length; i++) {
-    let newRes = res[i];
-    return console.log(newRes);
-  }
-});
-
-// Выбираем из таблицы comments
-connection.query(`select * from dentistry.comments`, (err, res) => {
-  for (let i = 0; i < res.length; i++) {
-    let newRes = res[i];
-    return console.log(newRes);
-  }
-});
-
 // Главный класс для работы с базой данных
 class DbService {
   static getDbServiceInstance() {
@@ -96,6 +72,27 @@ class DbService {
     }
   }
 
+  // Полученые сервером данные добавляем в таблицу comments
+  async insertNewComment(clientId, serviceCategory, dentistId, text, date) {
+    try {
+      const newComment = await new Promise((resolve, reject) => {
+        const query =
+          "INSERT INTO dentistry.comments (client_id, service_category_id, dentist_id, comment, date) VALUES (?,?,?,?,?);";
+        connection.query(
+          query,
+          [clientId, serviceCategory, dentistId, text, date],
+          (err, result) => {
+            if (err) reject(new Error(err.message));
+            else resolve(result.newComment);
+          }
+        );
+      });
+      //   return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async findClient(firstName, lastName, password) {
     console.log(firstName, lastName, password);
     try {
@@ -104,7 +101,6 @@ class DbService {
         connection.query(query, (err, result) => {
           if (err) reject(new Error(err.message));
           else {
-            console.log(result);
             resolve(result);
           }
         });
@@ -125,7 +121,6 @@ class DbService {
           else resolve(result);
         });
       });
-      //   console.log(response);
       return response;
     } catch (error) {
       console.log(error);
@@ -142,7 +137,6 @@ class DbService {
           else resolve(result);
         });
       });
-      //   console.log(response);
       return response;
     } catch (error) {
       console.log(error);
@@ -159,7 +153,6 @@ class DbService {
           else resolve(result);
         });
       });
-      console.log(response);
       return response;
     } catch (error) {
       console.log(error);
