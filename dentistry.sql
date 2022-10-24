@@ -140,16 +140,17 @@ CREATE TABLE IF NOT EXISTS `dentistry`.`personal` (
   `position` VARCHAR(45) NULL,
   `work_experience` VARCHAR(45) NULL,
   `appointment_time` VARCHAR(45) NULL,
+  `image` VARCHAR(100) NULL,
   PRIMARY KEY (`id_personal`),
   UNIQUE INDEX `id_personal_UNIQUE` (`id_personal` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('1', 'Стрелков Нестор Артёмович', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('2', 'Самойлов Филипп Борисович', 'Хирург-стоматолог-имплантолог', '15 лет', 'пн-пт 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('3', 'Якушева Василиса Вадимовна', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 15:00-20:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('4', 'Кононова Марина Максимовна', 'Врач-стоматолог-терапевт', '10 лет', 'четные дни 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('5', 'Шуфрич Фёдор Анатолиевич', 'Врач-стоматолог-ортопед', '8 лет', 'пн-пт 15:00-20:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('6', 'Котовска Вероника Ярославовна', 'Врач стоматолог-ортодонт', '15 лет', 'нечетные дни 15:00-20:00');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('1', 'Стрелков Нестор Артёмович', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 09:00-14:00', '../image/personal/img-1.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('2', 'Самойлов Филипп Борисович', 'Хирург-стоматолог-имплантолог', '15 лет', 'пн-пт 09:00-14:00', '../image/personal/img-2.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('3', 'Якушева Василиса Вадимовна', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 15:00-20:00', '../image/personal/img-3.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('4', 'Кононова Марина Максимовна', 'Врач-стоматолог-терапевт', '10 лет', 'четные дни 09:00-14:00', '../image/personal/img-4.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('5', 'Шуфрич Фёдор Анатолиевич', 'Врач-стоматолог-ортопед', '8 лет', 'пн-пт 15:00-20:00', '../image/personal/img-5.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('6', 'Котовска Вероника Ярославовна', 'Врач стоматолог-ортодонт', '15 лет', 'нечетные дни 15:00-20:00', '../image/personal/img-6.jpg');
 
 
 -- -----------------------------------------------------

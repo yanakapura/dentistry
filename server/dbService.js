@@ -176,7 +176,6 @@ class DbService {
           else resolve(result);
         });
       });
-      console.log(response);
       return response;
     } catch (error) {
       console.log(error);
@@ -193,7 +192,22 @@ class DbService {
           else resolve(result);
         });
       });
-      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Получение данных из таблицы service
+  async getServices() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const query = `SELECT * FROM dentistry.service`;
+        connection.query(query, (err, result) => {
+          if (err) reject(new Error(err.message));
+          else resolve(result);
+        });
+      });
       return response;
     } catch (error) {
       console.log(error);

@@ -56,13 +56,13 @@ let personal = localStorage.getItem("personal")
 personal ? personal : personal = personalTemp;
 
 function loadPersonal() {
-    if (personal.length > 4 && personal.length <= 6) {
-        personalSection.classList.add('grid-3')
-    } else if (personal.length > 6) {
-        personalSection.classList.add('grid-4')
-    }
-
     getPersonal().then(personal=>{
+        if (personal.length > 4 && personal.length <= 6) {
+            personalSection.classList.add('grid-3')
+        } else if (personal.length > 6) {
+            personalSection.classList.add('grid-4')
+        }
+        
     for (doctor of personal) {
             const newDoctor = document.createElement('li')
             newDoctor.classList = 'doctors-section__item doctor'

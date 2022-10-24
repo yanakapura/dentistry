@@ -15,6 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Оповещаем в консоле о запуске сервера
 app.listen(process.env.PORT, () => console.log("Сервер работает !"));
+// app.listen(process.env.PORT, notifyClient);
+
+app.get("/connect", (request, response) => {
+  response.json("connected")
+});
 
 // Принимаем данные для регистрации от клиента
 app.post("/registration", (request, response) => {
@@ -130,6 +135,18 @@ app.get("/getClients", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getClients();
+  console.log(result);
+
+  result
+    .then((data) => response.json({ data: data }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем клиенту данные об услугах
+app.get("/getServices", (request, response) => {
+  const db = dbService.getDbServiceInstance();
+
+  const result = db.getServices();
   console.log(result);
 
   result
