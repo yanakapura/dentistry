@@ -78,12 +78,13 @@ function clearAppoinmentForm() {
 
 // Загружаем имя и email пользователя в форму записи
 function loadAppointment() {
-  appointmentName.textContent = Object.keys(activeAcc).length
-    ? `${activeAcc.firstName} ${activeAcc.lastName}`
-    : "(зарегистрируйтесь или войдите в аккаунт)";
-  appointmentEmail.textContent = Object.keys(activeAcc).length
-    ? activeAcc.email
-    : "(зарегистрируйтесь или войдите в аккаунт)";
+  if (activeAcc && Object.keys(activeAcc).length) {
+    appointmentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
+    appointmentEmail.textContent = activeAcc.email;
+  } else {
+    appointmentName.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+    appointmentEmail.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+  }
 
   getServicesCategories().then((serviceCategories) => {
     for (service of serviceCategories) {

@@ -3,24 +3,24 @@
 // document.addEventListener("DOMContentLoaded", getClients);
 // setInterval(() => {
 // }, 5000);
-const loading = document.querySelector(".loading")
+const loading = document.querySelector(".loading");
 
 function connect() {
   fetch("http://localhost:5002/connect")
     .then((data) => data.json())
     .then((data) => {
-      if (data === 'connected') {
-        loading.classList.add("hide")
+      if (data === "connected") {
+        loading.classList.add("hide");
       }
     })
     .catch((err) => {
-      loading.classList.remove("hide")
+      loading.classList.remove("hide");
     });
 }
 
-connect()
+connect();
 setInterval(() => {
-  connect()
+  connect();
 }, 5000);
 
 // Отправляем серверу запрос на поиск клиента в БД
@@ -40,6 +40,17 @@ async function getClient(client) {
 // Отправляем данные о новой записи на сервер
 async function makeAppointment(data) {
   fetch("http://localhost:5002/appointment", {
+    headers: {
+      "Content-type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+// Отправляем данные о новом комментарии на сервер
+async function addCommentBD(data) {
+  fetch("http://localhost:5002/comment", {
     headers: {
       "Content-type": "application/json",
     },

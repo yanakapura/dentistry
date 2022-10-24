@@ -18,7 +18,7 @@ app.listen(process.env.PORT, () => console.log("Сервер работает !"
 // app.listen(process.env.PORT, notifyClient);
 
 app.get("/connect", (request, response) => {
-  response.json("connected")
+  response.json("connected");
 });
 
 // Принимаем данные для регистрации от клиента
@@ -75,6 +75,31 @@ app.post("/appointment", (request, response) => {
     time,
     message,
     service
+  );
+
+  result
+    .then((data) => response.json({ success: true }))
+    .catch((err) => console.log(err));
+});
+
+// Принимаем данные о записи на прием от клиента
+app.post("/comment", (request, response) => {
+  const comment = request.body;
+  const clientId = comment.name;
+  const serviceCategory = comment.service;
+  const dentistId = comment.doctor;
+  const text = comment.text;
+  const date = comment.date;
+  const id = comment.id;
+
+  const db = dbService.getDbServiceInstance();
+  const result = db.insertNewComment(
+    id,
+    clientId,
+    serviceCategory,
+    dentistId,
+    text,
+    date
   );
 
   result

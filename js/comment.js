@@ -39,9 +39,11 @@ const newCommentTextareaError = document.querySelector(
 
 // Загрузка комментариев из бд
 function loadComments() {
-  newCommentName.textContent = Object.keys(activeAcc).length
-    ? `${activeAcc.firstName} ${activeAcc.lastName}`
-    : "(зарегистрируйтесь или войдите в аккаунт)";
+  if (activeAcc && Object.keys(activeAcc).length) {
+    newCommentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
+  } else {
+    newCommentName.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+  }
   getComments().then((comments) => {
     getPersonal().then((allPersonal) => {
       getClients().then((clients) => {
@@ -96,20 +98,41 @@ loadComments();
 
 newCommentBtn.addEventListener("click", addComment);
 
+// Валидация и добавление нового комментария в бд через форму
 function addComment(e) {
   e.preventDefault();
+  // Валидация
   validationComment();
   if (loggedIn) {
     if (valid) {
-      const newComment = {};
-      newComment.name = activeAcc.firstName;
-      newComment.service = newCommentSelectService.value; //.options[appointmentSelect.selectedIndex].value
-      newComment.doctor = newCommentSelectDoctors.value;
-      newComment.text = newCommentTextarea.value;
-      newComment.date = new Date().toLocaleDateString();
-      comments.push(newComment);
-      localStorage.setItem("comments", JSON.stringify(comments));
-      location.reload();
+      // Отправление данных в бд
+      getComments().then((comments) => {
+        getPersonal().then((allPersonal) => {
+          getServicesCategories().then((categories) => {
+            categories.forEach((category) => {
+              allPersonal.forEach((doctor) => {
+                const newComment = {};
+                newComment.service = newCommentSelectService.value; //.options[appointmentSelect.selectedIndex].value
+                if (newComment.service === category.service_category) {
+                  newComment.service = category.id_service_category;
+                  newComment.name = activeAcc.id_clients;
+                  newComment.doctor = newCommentSelectDoctors.value;
+                  if (newComment.doctor === doctor.name) {
+                    newComment.doctor = doctor.id_personal;
+                    newComment.text = newCommentTextarea.value;
+                    newComment.date = new Date().toLocaleDateString();
+                    newComment.id = comments.length + 1;
+                    addCommentBD(newComment);
+                  }
+                }
+                // comments.push(newComment);
+                // localStorage.setItem("comments", JSON.stringify(comments));
+                // location.reload();
+              });
+            });
+          });
+        });
+      });
     }
   } else {
     //   Если не выполнен вход в аккаунт, открывается форма входа

@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "dentistry",
-  // password: "Taximoto_12345678",
-  password: "student",
+  password: "Taximoto_12345678",
+  //password: "student",
 });
 
 // Проверяем соединения с MySQL
@@ -75,7 +75,7 @@ class DbService {
     }
   }
 
-  // Полученне сервером данные добавляем в соответствующие таблицы в MySQL
+  // Полученые сервером данные добавляем в соответствующие таблицы в MySQL
   async insertNewAppointment(id, phoneNumber, date, time, message, service) {
     try {
       const newAppointment = await new Promise((resolve, reject) => {
@@ -87,6 +87,27 @@ class DbService {
           (err, result) => {
             if (err) reject(new Error(err.message));
             else resolve(result.newAppointment);
+          }
+        );
+      });
+      //   return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Полученые сервером данные добавляем в таблицу comments
+  async insertNewComment(id, clientId, serviceCategory, dentistId, text, date) {
+    try {
+      const newComment = await new Promise((resolve, reject) => {
+        const query =
+          "INSERT INTO dentistry.comments (id_comments, client_id, service_category_id, dentist_id, comment, date) VALUES (?,?,?,?,?,?);";
+        connection.query(
+          query,
+          [id, clientId, serviceCategory, dentistId, text, date],
+          (err, result) => {
+            if (err) reject(new Error(err.message));
+            else resolve(result.newComment);
           }
         );
       });
