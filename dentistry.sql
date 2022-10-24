@@ -157,13 +157,14 @@ INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_exp
 -- Table `dentistry`.`comments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentistry`.`comments` (
-  `id_comments` INT NOT NULL,
+  `id_comments` INT NOT NULL AUTO_INCREMENT,
   `client_id` INT NULL,
   `service_category_id` INT NULL,
   `dentist_id` INT NULL,
   `comment` TEXT(300) NULL,
   `date` DATE NULL,
   PRIMARY KEY (`id_comments`),
+  UNIQUE INDEX `id_comments_UNIQUE` (`id_comments` ASC) VISIBLE,
   INDEX `FK_client_id_idx` (`client_id` ASC) VISIBLE,
   INDEX `FK_services_category_idx` (`service_category_id` ASC) VISIBLE,
   INDEX `FK_dentist_id_idx` (`dentist_id` ASC) VISIBLE,
