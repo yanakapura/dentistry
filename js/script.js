@@ -1,6 +1,27 @@
 //сlient
 // При загрузке страницы подключаемся к серверу
 // document.addEventListener("DOMContentLoaded", getClients);
+// setInterval(() => {
+// }, 5000);
+const loading = document.querySelector(".loading")
+
+function connect() {
+  fetch("http://localhost:5002/connect")
+    .then((data) => data.json())
+    .then((data) => {
+      if (data === 'connected') {
+        loading.classList.add("hide")
+      }
+    })
+    .catch((err) => {
+      loading.classList.remove("hide")
+    });
+}
+
+connect()
+setInterval(() => {
+  connect()
+}, 5000);
 
 // Отправляем серверу запрос на поиск клиента в БД
 async function getClient(client) {
@@ -39,6 +60,34 @@ async function getAppointments(id) {
 // Получаем данные с сервера из таблицы services
 async function getServicesCategories() {
   let response = await fetch("http://localhost:5002/getServicesCategories");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы personal
+async function getPersonal() {
+  let response = await fetch("http://localhost:5002/getPersonal");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы comments
+async function getComments() {
+  let response = await fetch("http://localhost:5002/getComments");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы clients
+async function getClients() {
+  let response = await fetch("http://localhost:5002/getClients");
+  let { data } = await response.json();
+  return data;
+}
+
+// Получаем данные с сервера из таблицы services
+async function getServices() {
+  let response = await fetch("http://localhost:5002/getServices");
   let { data } = await response.json();
   return data;
 }

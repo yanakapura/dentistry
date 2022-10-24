@@ -158,15 +158,10 @@
           <label for="comment-services">Выберите услугу <span class="comment-services--error error"></span></label>
           <select id="comment-services">
             <option value="disabled" disabled selected>Выберите услугу</option>
-            <!-- <option value="Консультация стоматолога">Консультация стоматолога</option>
-            <option value="Эстетическая стоматология">Эстетическая стоматология</option>
-            <option value="Терапевтическая стоматология">Терапевтическая стоматология</option>
-            <option value="Детская стоматология">Детская стоматология</option> -->
           </select>
           <label for="comment-doctor">Врач <span class="comment-doctor--error error"></span></label>
           <select id="comment-doctor">
             <option value="disabled" disabled selected>Выберите врача</option>
-            <!-- <option value="Иванов Иван Иванович">Иванов Иван Иванович</option> -->
           </select>
           <label for="comment">Отзыв <span class="comment-textarea--error error"></span></label>
           <textarea id="comment"></textarea>
@@ -254,6 +249,11 @@
         </li>
       </ul>
     </footer>
+
+    <div class="loading hide">
+      <h1 class="loading__title">Не удается подключиться к серверу</h1>
+      <img class="loading__gif" src="image/spinner.gif" alt="spinner">
+    </div>
 
     <script src="../js/script.js"></script>
     <script src="../js/modal.js"></script>

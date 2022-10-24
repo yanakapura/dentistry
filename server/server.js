@@ -15,7 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Оповещаем в консоле о запуске сервера
 app.listen(process.env.PORT, () => console.log("Сервер работает !"));
+// app.listen(process.env.PORT, notifyClient);
 
+app.get("/connect", (request, response) => {
+  response.json("connected")
+});
 
 // Принимаем данные для регистрации от клиента
 app.post("/registration", (request, response) => {
@@ -26,7 +30,12 @@ app.post("/registration", (request, response) => {
   const email = client.email;
 
   const db = dbService.getDbServiceInstance();
-  const result = db.insertNewRowIntoClients(firstName, lastName, password, email);
+  const result = db.insertNewRowIntoClients(
+    firstName,
+    lastName,
+    password,
+    email
+  );
 
   result
     .then((data) => response.json({ success: true }))
@@ -59,7 +68,14 @@ app.post("/appointment", (request, response) => {
   const id = appointment.id;
 
   const db = dbService.getDbServiceInstance();
-  const result = db.insertNewAppointment(id, phoneNumber, date, time, message, service);
+  const result = db.insertNewAppointment(
+    id,
+    phoneNumber,
+    date,
+    time,
+    message,
+    service
+  );
 
   result
     .then((data) => response.json({ success: true }))
@@ -84,6 +100,54 @@ app.get("/getServicesCategories", (request, response) => {
   const db = dbService.getDbServiceInstance();
 
   const result = db.getServicesCategories();
+
+  result
+    .then((data) => response.json({ data: data }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем клиенту данные о врачах
+app.get("/getPersonal", (request, response) => {
+  const db = dbService.getDbServiceInstance();
+
+  const result = db.getPersonal();
+  console.log(result);
+
+  result
+    .then((data) => response.json({ data: data }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем клиенту данные о комментариях
+app.get("/getComments", (request, response) => {
+  const db = dbService.getDbServiceInstance();
+
+  const result = db.getComments();
+  console.log(result);
+
+  result
+    .then((data) => response.json({ data: data }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем клиенту данные о клиентах
+app.get("/getClients", (request, response) => {
+  const db = dbService.getDbServiceInstance();
+
+  const result = db.getClients();
+  console.log(result);
+
+  result
+    .then((data) => response.json({ data: data }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем клиенту данные об услугах
+app.get("/getServices", (request, response) => {
+  const db = dbService.getDbServiceInstance();
+
+  const result = db.getServices();
+  console.log(result);
 
   result
     .then((data) => response.json({ data: data }))

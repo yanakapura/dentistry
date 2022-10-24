@@ -38,16 +38,16 @@ INSERT INTO `dentistry`.`clients` (`id_clients`, `firstName`, `lastName`, `passw
 -- Table `dentistry`.`service_categories`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentistry`.`service_categories` (
-  `id_service_categoty` INT NOT NULL AUTO_INCREMENT,
+  `id_service_category` INT NOT NULL AUTO_INCREMENT,
   `service_category` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_service_categoty`),
-  UNIQUE INDEX `id_services_UNIQUE` (`id_service_categoty` ASC) VISIBLE)
+  PRIMARY KEY (`id_service_category`),
+  UNIQUE INDEX `id_services_UNIQUE` (`id_service_category` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `dentistry`.`service_categories` (`id_service_categoty`, `service_category`) VALUES ('1', 'Консультация стоматолога');
-INSERT INTO `dentistry`.`service_categories` (`id_service_categoty`, `service_category`) VALUES ('2', 'Эстетическая стоматология');
-INSERT INTO `dentistry`.`service_categories` (`id_service_categoty`, `service_category`) VALUES ('3', 'Терапевтическая стоматология');
-INSERT INTO `dentistry`.`service_categories` (`id_service_categoty`, `service_category`) VALUES ('4', 'Детская стоматология');
+INSERT INTO `dentistry`.`service_categories` (`id_service_category`, `service_category`) VALUES ('1', 'Консультация стоматолога');
+INSERT INTO `dentistry`.`service_categories` (`id_service_category`, `service_category`) VALUES ('2', 'Эстетическая стоматология');
+INSERT INTO `dentistry`.`service_categories` (`id_service_category`, `service_category`) VALUES ('3', 'Терапевтическая стоматология');
+INSERT INTO `dentistry`.`service_categories` (`id_service_category`, `service_category`) VALUES ('4', 'Детская стоматология');
 
 
 -- -----------------------------------------------------
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `dentistry`.`appointments` (
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_service_category`
     FOREIGN KEY (`service_category_id`)
-    REFERENCES `dentistry`.`service_categories` (`id_service_categoty`)
+    REFERENCES `dentistry`.`service_categories` (`id_service_category`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -91,44 +91,44 @@ INSERT INTO `dentistry`.`appointments` (`id_appointments`, `client_id`, `phone_n
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dentistry`.`service` (
   `id_service` INT NOT NULL,
-  `service_caterogy_id` INT NULL,
+  `service_category_id` INT NULL,
   `service` TEXT(200) NULL,
   `price` VARCHAR(100) NULL,
   PRIMARY KEY (`id_service`),
-  INDEX `FK_service_categoty_idx` (`service_caterogy_id` ASC) VISIBLE,
+  INDEX `FK_service_categoty_idx` (`service_category_id` ASC) VISIBLE,
   CONSTRAINT `FK_service_categoty`
-    FOREIGN KEY (`service_caterogy_id`)
-    REFERENCES `dentistry`.`service_categories` (`id_service_categoty`)
+    FOREIGN KEY (`service_category_id`)
+    REFERENCES `dentistry`.`service_categories` (`id_service_category`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('1', '1', 'Консультация ортопеда', '25');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('2', '1', 'Консультация хирурга по 3D снимку', '26');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('3', '1', 'Консультация хирурга с панорамным снимком', '24.85');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('4', '1', 'Консультация терапевта', '25');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('5', '1', 'Консультация ортодонта', '30');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('6', '2', 'Винир керамический', 'от 550');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('7', '2', 'Офисное отбеливание зубов (2 челюсти)', '260');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('8', '2', 'Профессиональная гигиена всей полости рта ультразвук, шлифовка, полировка', '150');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('9', '2', 'Профессиональная гигиена всей полости рта Air Flow', '180');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('10', '2', 'Винир, эстетическая реставрация переднего зуба с пломбировкой', 'от 180');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('11', '3', 'Лечение кариеса - при разрушении до 1/3 коронки зуба', 'от 85');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('12', '3', 'Лечение кариеса - при разрушении до 1/2 коронки зуба', 'от 100');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('13', '3', 'Лечение кариеса - при разрушении более 1/2 коронки зуба', 'от 130');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('14', '3', 'Пульпит - 1-канал (временная пломба). Постоянная пломба после лечения', '100');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('15', '3', 'Пульпит - 2-канал (временная пломба). Постоянная пломба после лечения', '180');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('16', '3', 'Пульпит - 3-канал (временная пломба). Постоянная пломба после лечения', '250');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('17', '3', 'Периодонтит - 1-канал (временная пломба)', 'от 160');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('18', '3', 'Периодонтит - 2-канал (временная пломба)', 'от 270');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('19', '3', 'Периодонтит - 3-канал (временная пломба)', 'от 360');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('20', '3', 'Восстановление анатомической формы зуба пломбировочным материалом, со стоимостью пломбы (без стоимости лечения каналов)', 'от 180');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('21', '3', 'Восстановление зуба со штифтом, без стоимости пломбы', 'от 70');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('22', '4', 'Консультация хирурга для ребенка', '20');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('23', '4', 'Удаление молочного зуба', '40-45');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('24', '4', 'Детская профгигиена полости рта', '70');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('25', '4', 'Кариес молочного зуба', '60-85');
-INSERT INTO `dentistry`.`service` (`id_service`, `service_caterogy_id`, `service`, `price`) VALUES ('26', '4', 'Ортодонтическая пластинка для детей', 'от 355');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('1', '1', 'Консультация ортопеда', '25');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('2', '1', 'Консультация хирурга по 3D снимку', '26');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('3', '1', 'Консультация хирурга с панорамным снимком', '24.85');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('4', '1', 'Консультация терапевта', '25');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('5', '1', 'Консультация ортодонта', '30');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('6', '2', 'Винир керамический', 'от 550');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('7', '2', 'Офисное отбеливание зубов (2 челюсти)', '260');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('8', '2', 'Профессиональная гигиена всей полости рта ультразвук, шлифовка, полировка', '150');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('9', '2', 'Профессиональная гигиена всей полости рта Air Flow', '180');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('10', '2', 'Винир, эстетическая реставрация переднего зуба с пломбировкой', 'от 180');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('11', '3', 'Лечение кариеса - при разрушении до 1/3 коронки зуба', 'от 85');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('12', '3', 'Лечение кариеса - при разрушении до 1/2 коронки зуба', 'от 100');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('13', '3', 'Лечение кариеса - при разрушении более 1/2 коронки зуба', 'от 130');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('14', '3', 'Пульпит - 1-канал (временная пломба). Постоянная пломба после лечения', '100');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('15', '3', 'Пульпит - 2-канал (временная пломба). Постоянная пломба после лечения', '180');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('16', '3', 'Пульпит - 3-канал (временная пломба). Постоянная пломба после лечения', '250');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('17', '3', 'Периодонтит - 1-канал (временная пломба)', 'от 160');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('18', '3', 'Периодонтит - 2-канал (временная пломба)', 'от 270');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('19', '3', 'Периодонтит - 3-канал (временная пломба)', 'от 360');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('20', '3', 'Восстановление анатомической формы зуба пломбировочным материалом, со стоимостью пломбы (без стоимости лечения каналов)', 'от 180');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('21', '3', 'Восстановление зуба со штифтом, без стоимости пломбы', 'от 70');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('22', '4', 'Консультация хирурга для ребенка', '20');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('23', '4', 'Удаление молочного зуба', '40-45');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('24', '4', 'Детская профгигиена полости рта', '70');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('25', '4', 'Кариес молочного зуба', '60-85');
+INSERT INTO `dentistry`.`service` (`id_service`, `service_category_id`, `service`, `price`) VALUES ('26', '4', 'Ортодонтическая пластинка для детей', 'от 355');
 
 
 -- -----------------------------------------------------
@@ -140,16 +140,17 @@ CREATE TABLE IF NOT EXISTS `dentistry`.`personal` (
   `position` VARCHAR(45) NULL,
   `work_experience` VARCHAR(45) NULL,
   `appointment_time` VARCHAR(45) NULL,
+  `image` VARCHAR(100) NULL,
   PRIMARY KEY (`id_personal`),
   UNIQUE INDEX `id_personal_UNIQUE` (`id_personal` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('1', 'Стрелков Нестор Артёмович', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('2', 'Самойлов Филипп Борисович', 'Хирург-стоматолог-имплантолог', '15 лет', 'пн-пт 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('3', 'Якушева Василиса Вадимовна', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 15:00-20:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('4', 'Кононова Марина Максимовна', 'Врач-стоматолог-терапевт', '10 лет', 'четные дни 09:00-14:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('5', 'Шуфрич Фёдор Анатолиевич', 'Врач-стоматолог-ортопед', '8 лет', 'пн-пт 15:00-20:00');
-INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`) VALUES ('6', 'Котовска Вероника Ярославовна', 'Врач стоматолог-ортодонт', '15 лет', 'нечетные дни 15:00-20:00');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('1', 'Стрелков Нестор Артёмович', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 09:00-14:00', '../image/personal/img-1.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('2', 'Самойлов Филипп Борисович', 'Хирург-стоматолог-имплантолог', '15 лет', 'пн-пт 09:00-14:00', '../image/personal/img-2.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('3', 'Якушева Василиса Вадимовна', 'Врач-стоматолог-терапевт', '20 лет', 'пн-пт 15:00-20:00', '../image/personal/img-3.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('4', 'Кононова Марина Максимовна', 'Врач-стоматолог-терапевт', '10 лет', 'четные дни 09:00-14:00', '../image/personal/img-4.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('5', 'Шуфрич Фёдор Анатолиевич', 'Врач-стоматолог-ортопед', '8 лет', 'пн-пт 15:00-20:00', '../image/personal/img-5.jpg');
+INSERT INTO `dentistry`.`personal` (`id_personal`, `name`, `position`, `work_experience`, `appointment_time`, `image`) VALUES ('6', 'Котовска Вероника Ярославовна', 'Врач стоматолог-ортодонт', '15 лет', 'нечетные дни 15:00-20:00', '../image/personal/img-6.jpg');
 
 
 -- -----------------------------------------------------
@@ -173,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `dentistry`.`comments` (
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_services_category`
     FOREIGN KEY (`service_category_id`)
-    REFERENCES `dentistry`.`service_categories` (`id_service_categoty`)
+    REFERENCES `dentistry`.`service_categories` (`id_service_category`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_dentist_id`
