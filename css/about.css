@@ -1,0 +1,276 @@
+body {
+  --bc-color: #cfbac9;
+
+  text-transform: none;
+  color: white;
+  letter-spacing: 1.5px;
+  word-spacing: 1.5px;
+}
+
+/**************** About section ****************/
+
+.about-section {
+  position: relative;
+  height: 100vh;
+}
+
+.about-section__text {
+  margin-top: 50px;
+}
+
+.about-section__text p {
+  margin-top: 10px;
+}
+
+.about-section__background {
+  position: relative;
+}
+
+.about-section__background--image {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+}
+
+.about-section__title {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  width: 600px;
+}
+
+/**************** Points section ****************/
+
+.points-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  padding: 60px;
+  position: relative;
+
+  background-color: white;
+  color: black;
+}
+
+.points-section__title {
+  text-align: center;
+}
+
+.points-section__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin: auto;
+  padding: 50px;
+  width: 75%;
+  height: 500px;
+  backdrop-filter: blur(7px);
+}
+
+.points-section__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.points-section__item img {
+  height: 60px;
+  width: auto;
+}
+
+.points-section__item h4 {
+  margin-bottom: 20px;
+}
+
+/**************** Doctors section ****************/
+
+.doctors-section {
+  background-color: white;
+  color: black;
+  padding: 60px;
+  padding-top: 0;
+}
+
+.doctors-section__title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.doctors-section__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.doctors-section__list.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  justify-items: center;
+}
+.doctors-section__list.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  justify-items: center;
+}
+
+.doctors-section__item  {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 500px;
+}
+
+.doctor__image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.doctor__image img {
+  height: 100%;
+}
+
+.doctor__description {
+  padding: 30px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doctor__name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.doctor__speciality {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/**************** Comments section ****************/
+
+.comments-section {
+  position: relative;
+}
+
+.comments-section__background {
+  height: 700px;
+}
+
+.comments-section__title {
+  position: absolute;
+  top: 70px;
+  left: 10%;
+  font-size: 50px;
+}
+
+.comments-section__comments {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  width: 700px;
+  height: 500px;
+  overflow: scroll;
+}
+
+.comments-section__comment {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(7px);
+}
+
+.comment {
+  height: auto;
+  padding: 25px;
+}
+
+.comment__image {
+  margin-right: 20px;
+  position: relative;
+}
+
+.comment__image::after {
+  content: "";
+  display: block;
+  height: 80px;
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: -2px;
+  left: -5px;
+  border-radius: 50%;
+}
+
+.comment__image img {
+  height: 70px;
+  width: 70px;
+}
+
+.comment__name {
+  display: block;
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.comment__title {
+  font-size: 16px;
+}
+
+.comment__comment {
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+/**************** New comment section ****************/
+
+.new-comment-section {
+  padding: 60px;
+  color: black;
+  background-color: white;
+}
+
+.new-comment-section__title {
+  text-align: center;
+}
+
+.new-comment-section__form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.new-comment-section__form label {
+  font-size: 14px;
+}
+
+.new-comment-section__form textarea {
+  height: 200px;
+  resize: none;
+}
+
+.new-comment-section input,
+.new-comment-section textarea,
+.new-comment-section select {
+  margin: 10px 0 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: "Jost", sans-serif;
+}
+
+.new-comment-section p {
+  margin: 5px 0 20px;
+  font-size: 20px;
+  font-weight: 500;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/account.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <a href="../index.html">
+          <img
+            class="header__logo--img"
+            src="../image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
+      </div>
+      <nav class="header__navigation nav">
+        <ul class="nav__links">
+          <li class="nav__link"><a href="about.html">О нас</a></li>
+          <li class="nav__link"><a href="services.html">Услуги</a></li>
+          <li class="nav__link"><a href="contacts.html">Контакты</a></li>
+        </ul>
+        <div class="nav__appointment">
+          <a class="nav__button" href="../html/services.html#appointment"
+            >Записаться на прием</a
+          >
+        </div>
+        <div class="nav__sign-up">
+          <button class="nav__button">Зарегистрироваться</button>
+        </div>
+        <div class="nav__login"><button class="nav__button">Войти</button></div>
+        <div class="nav__account" id="account-nav">
+          <div class="nav__account--img">
+            <img src="../image/icons/person.svg" alt="" />
+          </div>
+          <a class="nav__account--name" href="../html/account.html"></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="account-section">
+        <div class="account-section__image">
+          <img src="../image/icons/person.svg" alt="" />
+        </div>
+        <div class="account-section__name">
+          <h2 id="account-name"></h2>
+          <button class="account-section__btn">Выйти из аккаунта</button>
+        </div>
+        <div class="account-section__email">
+          <h3>Ваш Email</h3>
+          <span id="account-email"></span>
+        </div>
+        <div class="account-section__appointment">
+          <h3>Последние записи</h3>
+          <div class="account-section__table">
+            <table class="appointments" cellspacing="0">
+              <tr class="appointments__header">
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Услуга</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="overflow">
+      <div class="modal" id="modal--sign-up">
+        <h3 class="modal__title">Регистрация</h3>
+        <form class="modal__form">
+          <label for="name">Имя<span id="nameError" class="errorName error" ></span></label>
+          <input class="name" type="text" id="name"/>
+
+          <label for="surname">Фамилия<span id="surnameError" class="errorSurname error"></span></label>
+          <input type="text" id="surname"/>
+
+          <label for="password">Пароль<span id="passwordError" class="errorPassword error"></span></label>
+          <input type="password" id="password" class="input-password"/>
+
+          <label for="password-repeat">Повторите пароль<span id="passwordRepeatError" class="errorPassword error"></label>
+          <input type="password" id="password-repeat" class="input-password"/>
+
+          <label for="email">Email<span id="emailError" class="errorEmail error"></label>
+          <input type="email" id="email" />
+
+          <button class="modal__button btn" id="btn__sign-up" type="submit"> Зарегистрироваться</button>
+        
+        </form>
+        <img class="modal__close" src="../image/icons/close.svg" alt="" />
+      </div>
+      <div class="modal" id="modal--login">
+        <h3 class="modal__title">Войти</h3>
+        <span class="errorTitle hide">Логин или пароль введены неправильно, повторите попытку</span>
+        <form class="modal__form">
+
+          <label for="login-name">Имя<span class="errorNameLogIn error"></span></label>
+          <input class="name" type="text" id="login-name"/>
+
+          <label for="login-surname">Фамилия<span class="errorSurnameLogIn error"></span></label>
+          <input type="text" id="login-surname"/>
+
+          <label for="login-password">Пароль<span id="login-passwordError" class="errorPasswordLogIn error"></span
+          ></label>
+          <input type="password" class="input-password" id="login-password"/>
+
+          <button class="modal__button btn" id="btn__login" type="submit">Войти</button>
+        </form>
+        <img class="modal__close" src="../image/icons/close.svg" alt="" />
+
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__logo">
+        <a href="../index.html">
+          <img
+            class="footer__logo--img"
+            src="../image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
+      </div>
+      <ul class="footer__company">
+        <li class="title">Компания</li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <ul class="footer__contacts">
+        <li class="title">Контакты</li>
+        <li>+375-29-123-45-67 (МТС)</li>
+        <li>+375-33-123-45-67 (А1)</li>
+        <li>
+          <a href="https://instagram.com"
+            ><img src="../image/icons/instagram.svg" alt="instagram-logo"
+          /></a>
+          <a href="https://facebook.com"
+            ><img src="../image/icons/facebook.svg" alt="facebook-logo"
+          /></a>
+          <a href="https://web.telegram.org/"
+            ><img src="../image/icons/telegram.svg" alt="telegram-logo"
+          /></a>
+        </li>
+      </ul>
+    </footer>
+    
+    <div class="loading hide">
+      <h1 class="loading__title">Не удается подключиться к серверу</h1>
+      <img class="loading__gif" src="image/spinner.gif" alt="spinner">
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/account.js"></script>
+  </body>
+</html>

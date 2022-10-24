@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+
+        <a href=""
+          ><img
+            class="header__logo--img"
+            src="image/icons/lotus.svg"
+            alt=""
+          />FRAIS</a
+        >
+      </div>
+      <nav class="header__navigation nav">
+        <ul class="nav__links">
+          <li class="nav__link"><a href="html/about.html">О нас</a></li>
+          <li class="nav__link"><a href="html/services.html">Услуги</a></li>
+          <li class="nav__link"><a href="html/contacts.html">Контакты</a></li>
+        </ul>
+        <div class="nav__appointment">
+          <a class="nav__button" href="html/services.html#appointment">Записаться на прием</a> 
+        </div>
+        <div class="nav__sign-up">
+          <button class="nav__button">Зарегистрироваться</button>
+        </div>
+        <div class="nav__login"><button class="nav__button">Войти</button></div>
+        <div class="nav__account hide" id="account-nav">
+          <div class="nav__account--img">
+              <img src="/image/icons/person.svg" alt="">
+          </div>
+          <a class="nav__account--name" href="html/account.html"></a>
+      </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-section__background">
+          <img
+            class="hero-section__background--image"
+            src="image/image-2.jpg"
+            alt=""
+          />
+        </div>
+        <div class="hero-section__title">
+          <h1>Стоматология нового поколения</h1>
+          <a class="hero-section__button" href="html/about.html"
+            >Узнать больше
+            <svg
+              class="hero-section__button--svg"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <ellipse
+                  ry="25"
+                  rx="25"
+                  cy="25"
+                  cx="25"
+                  stroke-width="1"
+                  stroke="#ffffff4d"
+                  fill="transparent"
+                />
+                <ellipse
+                  ry="25"
+                  rx="25"
+                  class="circle"
+                  cy="25"
+                  cx="25"
+                  stroke-width="1"
+                  stroke="white"
+                  fill="transparent"
+                />
+              </g>
+            </svg>
+            <span></span>
+          </a>
+        </div>
+        <div class="hero-section__menu menu">
+          <ul class="menu__links">
+            <li class="menu__link">
+
+              <a href="html/services.html#consultation"
+                ><img class="menu__icon" src="image/icons/icon-1.svg" alt="" />
+
+                Консультация стоматолога</a
+              >
+            </li>
+            <li class="menu__link">
+              <a href="html/services.html#aesthetic-dentistry"
+                ><img
+                  class="menu__icon"
+                  src="image/icons/icon-3.svg"
+                  alt=""
+                />Эстетическая стоматология</a
+              >
+            </li>
+            <li class="menu__link">
+              <a href="html/services.html#therapeutic-dentistry"
+                ><img
+                  class="menu__icon"
+                  src="image/icons/icon-2.svg"
+                  alt=""
+                />Терапивтическая стоматология</a
+              >
+            </li>
+            <li class="menu__link">
+
+              <a href="html/services.html#children's-dentistry"
+                ><img
+                  class="menu__icon"
+                  src="image/icons/icon-4.svg"
+                  alt=""
+                />Детский прием стоматолога</a
+
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <div class="overflow">
+      <div class="modal" id="modal--sign-up">
+        <h3 class="modal__title">Регистрация</h3>
+        <form class="modal__form">
+          <label for="name">Имя<span id="nameError" class="errorName error" ></span></label>
+          <input class="name" type="text" id="name"/>
+
+          <label for="surname">Фамилия<span id="surnameError" class="errorSurname error"></span></label>
+          <input type="text" id="surname"/>
+
+          <label for="password">Пароль<span id="passwordError" class="errorPassword error"></span></label>
+          <input type="password" id="password" class="input-password"/>
+
+          <label for="password-repeat">Повторите пароль<span id="passwordRepeatError" class="errorPassword error"></label>
+          <input type="password" id="password-repeat" class="input-password"/>
+
+          <label for="email">Email<span id="emailError" class="errorEmail error"></label>
+          <input type="email" id="email" />
+
+          <button class="modal__button btn" id="btn__sign-up" type="submit"> Зарегистрироваться</button>
+        
+        </form>
+        <img class="modal__close" src="image/icons/close.svg" alt="" />
+      </div>
+      <div class="modal" id="modal--login">
+        <h3 class="modal__title">Войти</h3>
+        <span class="errorTitle hide">Логин или пароль введены неправильно, повторите попытку</span>
+        <form class="modal__form">
+
+          <label for="login-name">Имя<span class="errorNameLogIn error"></span></label>
+          <input class="name" type="text" id="login-name"/>
+
+          <label for="login-surname">Фамилия<span class="errorSurnameLogIn error"></span></label>
+          <input type="text" id="login-surname"/>
+
+          <label for="login-password">Пароль<span id="login-passwordError" class="errorPasswordLogIn error"></span
+          ></label>
+          <input type="password" class="input-password" id="login-password"/>
+
+          <button class="modal__button btn" id="btn__login" type="submit">Войти</button>
+        </form>
+        <img class="modal__close" src="image/icons/close.svg" alt="" />
+
+      </div>
+    </div>
+
+    <div class="loading hide">
+      <h1 class="loading__title">Не удается подключиться к серверу</h1>
+      <img class="loading__gif" src="image/spinner.gif" alt="spinner">
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
