@@ -15,7 +15,7 @@
     cost
   </li>
 </ol>
-
+>
 <p>As a result, all the tasks were completed.</p>
 <p>
   A MySQL database was created (the dentistry.sql file for installing the
@@ -26,12 +26,12 @@
   <img src="readme/img-1.png" alt="server creation" />
   <figcaption>Server creation</figcaption>
 </figure>
-
+>
 <figure>
   <img src="readme/img-2.png" alt="connection to db" />
   <figcaption>Database connection</figcaption>
 </figure>
-
+>
 <p>
   The dentistry website contains the main page, the "About us" page, the
   "Services" page, the "Contacts" page, as well as the user's personal page.
@@ -41,7 +41,7 @@
   <img src="readme/img-3.png" alt="main page" style="width: 600px" />
   <figcaption>Main page</figcaption>
 </figure>
-
+>
 <p>
   Page "About us" contains information about the company, a gallery of doctors
   with information about them, customer reviews, as well as a feedback form.
@@ -52,33 +52,29 @@
   <img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
   <figcaption>page "About us"</figcaption>
 </figure>
-
+>
 <p>
   The "Services" page contains information about the services provided and
   prices for them (data is requested from the database) and including an
   appointment form (data is responsing to the database).
 </p>
 <i>(Background image is fixed)</i>
-<figure>
-  <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
-  <figcaption>page "Services"</figcaption>
-</figure>
-
+<img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
+page "Services"
+>
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
-<figure>
-  <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
-  <figcaption>page "Contacts"</figcaption>
-</figure>
 
+ <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
+ page "Contacts"
+>
 <p>
   The user's personal page contains information about the client, his name,
   email, and all his records received from the database. There is also a logout
   button on the page.
 </p>
-<figure>
   <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
-  <figcaption>User's personal page</figcaption>
-</figure>
+  User's personal page
+>
 
 <p>If the client cannot connect/loses connection to the server, the following message is displayed on the screen: "Unable to connect to the server"</p>
 <img src="readme/img-7.png" alt="Unable to connect to the server" style="width: 600px">
