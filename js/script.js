@@ -1,24 +1,24 @@
 const loading = document.querySelector(".loading")
 
-function connect() {
-  fetch("http://localhost:5002/connect")
-    .then((data) => data.json())
-    .then((data) => {
-      if (data === 'connected') {
-        loading.classList.add("hide")
-      }
-    })
-    .catch((err) => {
-      loading.classList.remove("hide")
-    });
-}
+// function connect() {
+//   fetch("http://localhost:5002/connect")
+//     .then((data) => data.json())
+//     .then((data) => {
+//       if (data === 'connected') {
+//         loading.classList.add("hide")
+//       }
+//     })
+//     .catch((err) => {
+//       loading.classList.remove("hide")
+//     });
+// }
 
-connect()
-setInterval(() => {
-  connect()
-}, 5000);
+// connect()
+// setInterval(() => {
+//   connect()
+// }, 5000);
 
-
+loading.classList.remove("hide")
 
 // Отправляем серверу запрос на поиск клиента в БД
 async function getClient(client) {
