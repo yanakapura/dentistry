@@ -23,20 +23,19 @@
   Node.js, it connects to BD and processes user requests.
 </p>
 
-  <img src="readme/img-1.png" alt="server creation" />
-  <i>Server creation</i>
-
-
-  <img src="readme/img-2.png" alt="connection to db" />
+ <i>Server creation</i>
+ <img src="readme/img-1.png" alt="server creation" />
+ 
   <i>Database connection</i>
+  <img src="readme/img-2.png" alt="connection to db" />
 
 <p>
   The dentistry website contains the main page, the "About us" page, the
   "Services" page, the "Contacts" page, as well as the user's personal page.
 </p>
 
-  <img src="readme/img-3.png" alt="main page" style="width: 600px" />
-  <i>Main page</i>
+<i>Main page</i>
+<img src="readme/img-3.png" alt="main page" style="width: 600px" />
 
 
 <p>
@@ -46,29 +45,32 @@
   comments are added to the database
 </p>
 
-  <img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
-  <i>page "About us"</i>
+<i>page "About us"</i>
+<img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
+  
 <p>
   The "Services" page contains information about the services provided and
   prices for them (data is requested from the database) and including an
   appointment form (data is responsing to the database).
 </p>
-<i>(Background image is fixed)</i>
+<i>page "Services"</i>
+<i><b>(Background image is fixed)</b></i>
 <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
 <i>page "Services"</i>
 
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
 
- <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
- <i>page "Contacts"</i>
-
+<i>page "Contacts"</i>
+<img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
+ 
 <p>
   The user's personal page contains information about the client, his name,
   email, and all his records received from the database. There is also a logout
   button on the page.
 </p>
-  <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
-  <i>User's personal page</i>
+<i>User's personal page</i>
+<img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
+
 
 
 <p>If the client cannot connect/loses connection to the server, the following message is displayed on the screen: "Unable to connect to the server"</p>
