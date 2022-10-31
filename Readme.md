@@ -57,6 +57,7 @@ _page "About us"_
   prices for them (data is requested from the database) and including an
   appointment form (data is responsing to the database).
 </p>
+
 _page "Services"_  
 
 ***(Background image is fixed)***  
