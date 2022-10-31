@@ -18,7 +18,7 @@ const loading = document.querySelector(".loading")
 //   connect()
 // }, 5000);
 
-loading.classList.remove("hide")
+// loading.classList.remove("hide")
 
 // Отправляем серверу запрос на поиск клиента в БД
 async function getClient(client) {
