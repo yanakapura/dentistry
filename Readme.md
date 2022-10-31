@@ -24,12 +24,14 @@
 </p>
 <figure>
   <img src="readme/img-1.png" alt="server creation" />
-  <figcaption style="font-size: small; margin-bottom: 2em">Server creation</figcaption>
+  <figcaption>Server creation</figcaption>
 </figure>
+<br/>
 <figure>
   <img src="readme/img-2.png" alt="connection to db" />
-  <figcaption style="font-size: small; margin-bottom: 2em">Database connection</figcaption>
+  <figcaption>Database connection</figcaption>
 </figure>
+<br/>
 
 <p>
   The dentistry website contains the main page, the "About us" page, the
@@ -38,8 +40,9 @@
 
 <figure>
   <img src="readme/img-3.png" alt="main page" style="width: 600px" />
-  <figcaption style="font-size: small; margin-bottom: 2em">Main page</figcaption>
+  <figcaption>Main page</figcaption>
 </figure>
+<br/>
 
 <p>
   Page "About us" contains information about the company, a gallery of doctors
@@ -49,8 +52,9 @@
 </p>
 <figure>
   <img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
-  <figcaption style="font-size: small; margin-bottom: 2em">page "About us"</figcaption>
+  <figcaption>page "About us"</figcaption>
 </figure>
+<br/>
 
 <p>
   The "Services" page contains information about the services provided and
@@ -60,14 +64,16 @@
 <i>(Background image is fixed)</i>
 <figure>
   <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
-  <figcaption style="font-size: small; margin-bottom: 2em">page "Services"</figcaption>
+  <figcaption>page "Services"</figcaption>
 </figure>
+<br/>
 
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
 <figure>
   <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
-  <figcaption style="font-size: small; margin-bottom: 2em">page "Contacts"</figcaption>
+  <figcaption>page "Contacts"</figcaption>
 </figure>
+<br/>
 
 <p>
   The user's personal page contains information about the client, his name,
@@ -76,8 +82,9 @@
 </p>
 <figure>
   <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
-  <figcaption style="font-size: small; margin-bottom: 2em">User's personal page</figcaption>
+  <figcaption>User's personal page</figcaption>
 </figure>
+<br/>
 
 <p>If the client cannot connect/loses connection to the server, the following message is displayed on the screen: "Unable to connect to the server"</p>
 <img src="readme/img-7.png" alt="Unable to connect to the server" style="width: 600px">
