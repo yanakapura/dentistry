@@ -23,10 +23,12 @@
   Node.js, it connects to BD and processes user requests.
 </p>
 
- <i>Server creation</i>
+ _Server creation_  
+ 
  <img src="readme/img-1.png" alt="server creation" />
  
-  <i>Database connection</i>
+  _Database connection_  
+  
   <img src="readme/img-2.png" alt="connection to db" />
 
 <p>
@@ -34,7 +36,8 @@
   "Services" page, the "Contacts" page, as well as the user's personal page.
 </p>
 
-<i>Main page</i>
+_Main page_  
+
 <img src="readme/img-3.png" alt="main page" style="width: 600px" />
 
 
@@ -45,7 +48,8 @@
   comments are added to the database
 </p>
 
-<i>page "About us"</i>
+_page "About us"_  
+
 <img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
   
 <p>
@@ -53,14 +57,15 @@
   prices for them (data is requested from the database) and including an
   appointment form (data is responsing to the database).
 </p>
-<i>page "Services"</i>
+_page "Services"_  
+
 <i><b>(Background image is fixed)</b></i>
 <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
-<i>page "Services"</i>
+_page "Services"_  
 
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
 
-<i>page "Contacts"</i>
+_page "Contacts"_  
 <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
  
 <p>
@@ -68,7 +73,8 @@
   email, and all his records received from the database. There is also a logout
   button on the page.
 </p>
-<i>User's personal page</i>
+_User's personal page_  
+
 <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
 
 
