@@ -28,6 +28,7 @@ function registration() {
     password: newClient.password
   });
   serverData.then((data) => {
+    data = data[0]
     localStorage.setItem("activeAcc", JSON.stringify(data));
   });
   // Отображаем в хедере аккаунт клиента
@@ -80,7 +81,7 @@ function showAccountNav(clientObj) {
 
 // Получаем из localeStorage данные о том, был ли выполнен вход в аккаунт, и данные активного клиента
 const loggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-const activeAcc = JSON.parse(localStorage.getItem("activeAcc"));
+let activeAcc = JSON.parse(localStorage.getItem("activeAcc"));
 
 // Если выполнен вход в аккаунт, отображаем аккаунт в хедере
 function isLoggedIn() {

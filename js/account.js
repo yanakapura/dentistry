@@ -8,6 +8,8 @@ function loadAccount() {
   accEmail.textContent = activeAcc.email;
 }
 
+// console.log(activeAcc[0].firstName);
+
 loadAccount();
 
 // Загрузка записей на прием в таблицу на личной странице
