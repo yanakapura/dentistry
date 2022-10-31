@@ -59,9 +59,10 @@ _page "About us"_
 </p>
 _page "Services"_  
 
-<i><b>(Background image is fixed)</b></i>
+***(Background image is fixed)***  
+
 <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
-_page "Services"_  
+ 
 
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
 
@@ -73,6 +74,7 @@ _page "Contacts"_
   email, and all his records received from the database. There is also a logout
   button on the page.
 </p>
+
 _User's personal page_  
 
 <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
