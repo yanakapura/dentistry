@@ -24,11 +24,11 @@
 </p>
 <figure>
   <img src="readme/img-1.png" alt="server creation" />
-  <figcaption>Server creation</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">Server creation</figcaption>
 </figure>
 <figure>
   <img src="readme/img-2.png" alt="connection to db" />
-  <figcaption>Database connection</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">Database connection</figcaption>
 </figure>
 
 <p>
@@ -38,7 +38,7 @@
 
 <figure>
   <img src="readme/img-3.png" alt="main page" style="width: 600px" />
-  <figcaption>Main page</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">Main page</figcaption>
 </figure>
 
 <p>
@@ -49,7 +49,7 @@
 </p>
 <figure>
   <img src="readme/about.jpg" alt="page 'about'" style="width: 600px" />
-  <figcaption>page "About us"</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">page "About us"</figcaption>
 </figure>
 
 <p>
@@ -60,13 +60,13 @@
 <i>(Background image is fixed)</i>
 <figure>
   <img src="readme/services.jpg" alt="page 'about'" style="width: 600px" />
-  <figcaption>page "Services"</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">page "Services"</figcaption>
 </figure>
 
 <p>The "Contacts" page contains company's contacts and imported Google map</p>
 <figure>
   <img src="readme/img-5.png" alt="page 'about'" style="width: 600px" />
-  <figcaption>page "Contacts"</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">page "Contacts"</figcaption>
 </figure>
 
 <p>
@@ -76,7 +76,7 @@
 </p>
 <figure>
   <img src="readme/img-6.png" alt="page 'about'" style="width: 600px" />
-  <figcaption>User's personal page</figcaption>
+  <figcaption style="font-size: small; margin-bottom: 2em">User's personal page</figcaption>
 </figure>
 
 <p>If the client cannot connect/loses connection to the server, the following message is displayed on the screen: "Unable to connect to the server"</p>
