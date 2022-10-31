@@ -15,7 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // Оповещаем в консоле о запуске сервера
 app.listen(process.env.PORT, () => console.log("Сервер работает !"));
-// app.listen(process.env.PORT, notifyClient);
 
 app.get("/connect", (request, response) => {
   response.json("connected")
