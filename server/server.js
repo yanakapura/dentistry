@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Оповещаем в консоле о запуске сервера
 app.listen(process.env.PORT, () => console.log("Сервер работает !"));
+// app.listen(process.env.PORT, notifyClient);
 
 app.get("/connect", (request, response) => {
   response.json("connected")
@@ -65,6 +66,15 @@ app.post("/appointment", (request, response) => {
   const message = appointment.message;
   const service = appointment.service;
   const id = appointment.id;
+  const doctor = appointment.doctor;
+
+  console.log(id,
+    phoneNumber,
+    date,
+    time,
+    message,
+    service,
+    doctor);
 
   const db = dbService.getDbServiceInstance();
   const result = db.insertNewAppointment(
@@ -73,7 +83,8 @@ app.post("/appointment", (request, response) => {
     date,
     time,
     message,
-    service
+    service,
+    doctor
   );
 
   result

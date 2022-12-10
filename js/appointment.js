@@ -21,38 +21,44 @@ const appointmentsArr = [];
 btnAppointment.addEventListener("click", (e) => {
   e.preventDefault();
   validationAppointment();
+
   if (loggedIn) {
     //   Если выполнен вход в аккаунт, создается запись
     if (valid) {
-      const appointmentObj = {};
-      // Получаем данные из формы записи и присваиваем из пустому объекту
-      appointmentObj.phoneNumber = document.querySelector(
-        "#appointment-number"
-      ).value;
-      appointmentObj.date = document.querySelector("#appointment-date").value;
-      appointmentObj.time = document.querySelector("#appointment-time").value;
-      appointmentObj.message = appointmentTextAria.value;
-      // Get value from select
-      appointmentObj.service =
-        appointmentSelect.options[appointmentSelect.selectedIndex].dataset.id;
-      appointmentObj.id = activeAcc.id_clients;
+      getPersonal().then((personal) => {
+        const appointmentObj = {};
+        const max = personal.length;
+        // Получаем данные из формы записи и присваиваем из пустому объекту
+        appointmentObj.phoneNumber = document.querySelector(
+          "#appointment-number"
+        ).value;
+        appointmentObj.date = document.querySelector("#appointment-date").value;
+        appointmentObj.time = document.querySelector("#appointment-time").value;
+        appointmentObj.message = appointmentTextAria.value;
+        // Get value from select
+        appointmentObj.service =
+          appointmentSelect.options[appointmentSelect.selectedIndex].dataset.id;
+        appointmentObj.id = activeAcc.id_clients;
 
-      // Отправляем данные о записи на прием в базу данных
-      makeAppointment(appointmentObj);
-
-      // Проверяем, есть ли в базе данные о записи и, если нет, создаем пустой масссив
-      activeAcc.appointments
+        appointmentObj.doctor = Math.round(Math.random() * (max - 1) + 1);
+        
+        // Отправляем данные о записи на прием в базу данных
+        makeAppointment(appointmentObj);
+        
+        // Проверяем, есть ли в базе данные о записи и, если нет, создаем пустой масссив
+        activeAcc.appointments
         ? activeAcc.appointments
         : (activeAcc.appointments = []);
-      // Добавляем полученные данные о записи в обект active account и перезаписываем его в localeStorage
-      activeAcc.appointments.push(appointmentObj);
-      localStorage.setItem("activeAcc", JSON.stringify(activeAcc));
-
-      alert("Запись добавлена!");
-
-      // Очищаем форму записи
-      clearAppoinmentForm();
-    }
+        // Добавляем полученные данные о записи в обект active account и перезаписываем его в localeStorage
+        activeAcc.appointments.push(appointmentObj);
+        localStorage.setItem("activeAcc", JSON.stringify(activeAcc));
+        
+        alert("Запись добавлена!");
+        
+        // Очищаем форму записи
+        clearAppoinmentForm();
+      });
+      }
   } else {
     //   Если не выполнен вход в аккаунт, открывается форма входа
     openLogin();
@@ -78,23 +84,32 @@ function clearAppoinmentForm() {
 
 // Загружаем имя и email пользователя в форму записи
 function loadAppointment() {
+  if (activeAcc && Object.keys(activeAcc).length) {
+    appointmentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
+    appointmentEmail.textContent = activeAcc.email;
+  } else {
+    appointmentName.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+    appointmentEmail.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
+  }
 
-    if (activeAcc && Object.keys(activeAcc).length) {
-      appointmentName.textContent = `${activeAcc.firstName} ${activeAcc.lastName}`;
-      appointmentEmail.textContent = activeAcc.email;
-    } else {
-      appointmentName.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
-      appointmentEmail.textContent = "(зарегистрируйтесь или войдите в аккаунт)";
-    }
-
-  getServicesCategories().then((serviceCategories) => {
-    for (service of serviceCategories) {
+  getServices().then((services) => {
+    console.log(services);
+    for (service of services) {
       const newOption = document.createElement("option");
-      newOption.value = service.service_category;
-      newOption.textContent = service.service_category;
-      newOption.dataset.id = service.id_service_category;
+      newOption.value = service.service;
+      newOption.textContent = service.service;
+      newOption.dataset.id = service.id_service;
       appointmentSelect.appendChild(newOption);
     }
   });
+  // getServicesCategories().then((serviceCategories) => {
+  //   for (service of serviceCategories) {
+  //     const newOption = document.createElement("option");
+  //     newOption.value = service.service_category;
+  //     newOption.textContent = service.service_category;
+  //     newOption.dataset.id = service.id_service_category;
+  //     appointmentSelect.appendChild(newOption);
+  //   }
+  // });
 }
 loadAppointment();

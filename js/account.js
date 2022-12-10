@@ -15,30 +15,44 @@ loadAccount();
 // Загрузка записей на прием в таблицу на личной странице
 function loadAppointments() {
   getAppointments(activeAcc.id_clients).then((appointments) => {
+    getServices().then((services) => {
+      getPersonal().then((doctors) => {
     // Если записей больше одной, сортируем записи по дате
     appointments.length > 1 &&
       appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     // Получаем список всех категорий услуг из БД
-    getServicesCategories().then((serviceCategories) => {
       for (appointment of appointments) {
         // Для каждой записи создаем строку таблицы
         const newAppointment = document.createElement("tr");
         newAppointment.classList.add("appointments__item");
 
-        // Находим название услуги по id
-        const caterogyName = serviceCategories.find(
-          (el) => el.id_service_category === appointment.service_category_id
-        ).service_category;
+        // Находим имя врача по id
+          const doctorName = doctors.find(
+            (el) => el.id_personal === appointment.doctor
+          ).name;
 
-        newAppointment.innerHTML = `
+          // Находим название услуги по id
+          const caterogyName = services.find(
+            (el) => el.id_service === appointment.service_category_id
+          ).service;
+
+          // Находим цену услуги по id
+          const caterogyPrice = services.find(
+            (el) => el.id_service === appointment.service_category_id
+          ).price;
+
+          newAppointment.innerHTML = `
         <td>${new Date(appointment.date).toLocaleDateString("ru-RB")}</td>
         <td>${appointment.time.slice(0, 5)}</td>
-        <td>${caterogyName}</td>`;
+        <td>${doctorName}</td>
+        <td>${caterogyName}</td>
+        <td>${caterogyPrice} руб.</td>`;
 
-        // Добавляем строку в таблицу
-        accAppointments.appendChild(newAppointment);
-      }
+          // Добавляем строку в таблицу
+          accAppointments.appendChild(newAppointment);
+        }
+      });
     });
   });
 }
