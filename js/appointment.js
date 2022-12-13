@@ -6,6 +6,11 @@ const appointmentTextAria = document.querySelector("#appointment-text");
 const appointmentTextAriaError = document.querySelector(
   ".appointment__textaria-error"
 );
+const appointmentTime = document.querySelector("#appointment-time");
+const appointmentTimeErrorLabel = document.querySelector(
+  "#span-error-appointment-time"
+);
+const appointmentDate = document.querySelector("#appointment-date");
 const appointmentSelect = document.getElementById("appointment-service");
 const appointmentSelectError = document.querySelector(
   ".appointment__service-error"
@@ -41,24 +46,24 @@ btnAppointment.addEventListener("click", (e) => {
         appointmentObj.id = activeAcc.id_clients;
 
         appointmentObj.doctor = Math.round(Math.random() * (max - 1) + 1);
-        
+
         // Отправляем данные о записи на прием в базу данных
         makeAppointment(appointmentObj);
-        
+
         // Проверяем, есть ли в базе данные о записи и, если нет, создаем пустой масссив
         activeAcc.appointments
-        ? activeAcc.appointments
-        : (activeAcc.appointments = []);
+          ? activeAcc.appointments
+          : (activeAcc.appointments = []);
         // Добавляем полученные данные о записи в обект active account и перезаписываем его в localeStorage
         activeAcc.appointments.push(appointmentObj);
         localStorage.setItem("activeAcc", JSON.stringify(activeAcc));
-        
+
         alert("Запись добавлена!");
-        
+
         // Очищаем форму записи
         clearAppoinmentForm();
       });
-      }
+    }
   } else {
     //   Если не выполнен вход в аккаунт, открывается форма входа
     openLogin();
@@ -71,6 +76,40 @@ function validationAppointment() {
     validation(appointmentInputs[i], appointmentLabelsError[i]);
   }
   validation(appointmentSelect, appointmentSelectError);
+  validationAppointmentTime();
+}
+
+// Валидация на длинну пароля
+function validationAppointmentTime() {
+  getAppointments(activeAcc.id_clients).then((appointments) => {
+    const dateStr = appointmentDate.value + "T" + appointmentTime.value;
+    const inputedDate = new Date(dateStr);
+
+    for (appointment of appointments) {
+      // Создаем дату окончания приема
+      let hoursEnd = +appointment.time.slice(0, 2);
+      hoursEnd = hoursEnd === 24 ? "00" : ++hoursEnd;
+      const appTimeEnd = hoursEnd + appointment.time.slice(2);
+      const appDateEndStr = appointment.date.slice(0, 11) + appTimeEnd;
+      const appDateEnd = new Date(appDateEndStr);
+      // Создаем дату до начала приема
+      let hoursStart = +appointment.time.slice(0, 2);
+      hoursStart = hoursStart === 0 ? 24 : --hoursStart;
+      const appTimeStart = hoursStart + appointment.time.slice(2);
+      const appDateStartStr = appointment.date.slice(0, 11) + appTimeStart;
+      const appDateStart = new Date(appDateStartStr);
+
+      if (inputedDate > appDateStart && inputedDate < appDateEnd) {
+        appointmentTime.classList.add("input-error");
+        appointmentTimeErrorLabel.classList.remove("hide");
+        appointmentTimeErrorLabel.textContent =
+          "У вас уже есть запись на это время";
+        valid = false;
+      } else {
+        valid = true;
+      }
+    }
+  });
 }
 
 // Функция очистки формы записи
@@ -93,7 +132,6 @@ function loadAppointment() {
   }
 
   getServices().then((services) => {
-    console.log(services);
     for (service of services) {
       const newOption = document.createElement("option");
       newOption.value = service.service;
