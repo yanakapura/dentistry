@@ -1,6 +1,5 @@
 body {
   --bc-color: #97af92;
-
   text-transform: none;
   color: white;
   letter-spacing: 1.5px;
@@ -61,7 +60,6 @@ body {
 }
 
 .appointments {
-  background-color: white;
   color: black;
   font-size: 14px;
   width: 100%;
@@ -76,8 +74,37 @@ body {
   text-align: left;
 }
 
-.appointments td, .appointments th {
-  padding: 10px 30px;
+.appointments td,
+.appointments th {
+  padding: 10px 15px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  text-align: center;
+  background-color: white;
+  text-align: start;
+  transition: .2s ease;
+}
+
+.appointments__item {
+  position: relative;
+}
+
+.btn__delete {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  /* height: 100%; */
+  width: 30%;
+  margin: 0px 5px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.past {
+  color: rgba(128, 128, 128, 0.608);
+}
+
+.appointments__item.shadow td {
+  background-color: rgb(193, 193, 193);
 }

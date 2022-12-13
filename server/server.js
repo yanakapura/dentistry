@@ -15,9 +15,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Оповещаем в консоле о запуске сервера
 app.listen(process.env.PORT, () => console.log("Сервер работает !"));
+// app.listen(process.env.PORT, notifyClient);
 
 app.get("/connect", (request, response) => {
-  response.json("connected")
+  response.json("connected");
 });
 
 // Принимаем данные для регистрации от клиента
@@ -65,6 +66,9 @@ app.post("/appointment", (request, response) => {
   const message = appointment.message;
   const service = appointment.service;
   const id = appointment.id;
+  const doctor = appointment.doctor;
+
+  console.log(id, phoneNumber, date, time, message, service, doctor);
 
   const db = dbService.getDbServiceInstance();
   const result = db.insertNewAppointment(
@@ -73,8 +77,24 @@ app.post("/appointment", (request, response) => {
     date,
     time,
     message,
-    service
+    service,
+    doctor
   );
+
+  result
+    .then((data) => response.json({ success: true }))
+    .catch((err) => console.log(err));
+});
+
+// Отправляем данные об удалении записи к врачу
+app.post("/deleteappointment", (request, response) => {
+  const appointment = request.body;
+  const id = appointment.id_appointments;
+
+  console.log(appointment);
+
+  const db = dbService.getDbServiceInstance();
+  const result = db.deleteAppointment(id);
 
   result
     .then((data) => response.json({ success: true }))

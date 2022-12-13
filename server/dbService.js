@@ -11,6 +11,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   database: "dentistry",
+  // password: "Taximoto_12345678",
   password: "student",
 });
 
@@ -51,14 +52,22 @@ class DbService {
   }
 
   // Полученне сервером данные добавляем в соответствующие таблицы в MySQL
-  async insertNewAppointment(id, phoneNumber, date, time, message, service) {
+  async insertNewAppointment(
+    id,
+    phoneNumber,
+    date,
+    time,
+    message,
+    service,
+    doctor
+  ) {
     try {
       const newAppointment = await new Promise((resolve, reject) => {
         const query =
-          "INSERT INTO dentistry.appointments (client_id, phone_number, date, time, service_category_id, message) VALUES (?,?,?,?,?,?);";
+          "INSERT INTO dentistry.appointments (client_id, phone_number, date, time, service_category_id, message, doctor) VALUES (?,?,?,?,?,?,?);";
         connection.query(
           query,
-          [id, phoneNumber, date, time, service, message],
+          [id, phoneNumber, date, time, service, message, doctor],
           (err, result) => {
             if (err) reject(new Error(err.message));
             else resolve(result.newAppointment);
@@ -91,7 +100,21 @@ class DbService {
       console.log(error);
     }
   }
-
+  // Удаление записи к врачу
+  async deleteAppointment(id) {
+    try {
+      const deleteAppointment = await new Promise((resolve, reject) => {
+        const query = `DELETE FROM dentistry.appointments WHERE id_appointments="${id}"`;
+        connection.query(query, [id], (err, result) => {
+          if (err) reject(new Error(err.message));
+          else resolve(result.deleteAppointment);
+        });
+      });
+      //   return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async findClient(firstName, lastName, password) {
     console.log(firstName, lastName, password);
     try {
